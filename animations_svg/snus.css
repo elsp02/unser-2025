@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  overflow-x: hidden; /* verhindert Scrollen */
+}
+
+#flyImg {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 120px; /* oder auto */
+  transform: translateY(-50%);
+}

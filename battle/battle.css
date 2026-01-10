@@ -1,0 +1,44 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #f6f4ef;
+  overflow: hidden; /* wichtig für Slide-In */
+}
+
+.stage{
+  width: min(1100px, 92vw);
+  height: min(520px, 70vh);
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: clamp(12px, 3vw, 48px);
+}
+
+.side{
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.logo{
+  width: clamp(180px, 28vw, 420px);
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 18px 28px rgba(0,0,0,0.18));
+  transform-origin: 50% 50%;
+}
+
+.vs{
+  font-family: system-ui, Arial, sans-serif;
+  font-weight: 900;
+  font-size: clamp(36px, 6vw, 90px);
+  letter-spacing: 0.08em;
+  color: #111;
+  opacity: 0;          /* kommt per GSAP */
+  transform: scale(0.7);
+  user-select: none;
+}

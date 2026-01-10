@@ -1,0 +1,158 @@
+<style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');   
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html, body {
+        width: 100vw;
+        overflow-x: hidden;
+        background: #f5f5f5;
+        font-family: Raleway, sans-serif;
+    }
+
+    h1{
+        position: absolute;
+        left: 5rem;
+        top: 2vh;
+        font-size: 5vw;
+        font-weight: 600;
+    }
+
+    h2{
+        position: absolute;
+        bottom: 2vh;
+        left: 5rem;
+        text-align: center;
+    }
+
+    h2 span{
+        font-weight: 300;
+        font-size: 1rem;
+        color: #0000007b;
+        display: block;
+    }
+
+    .progress{
+        position: absolute;
+        bottom: 4vh;
+        right: 5rem;
+        font-size: 0.8rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .progress-amount{
+        margin-left: 0.5rem;
+        font-size: 1.2rem;
+    }
+
+
+    .scroll-section {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative; /* statt fixed */
+    }
+
+    .card {
+        background-color: turquoise;
+        width: 300px;
+        height: fit-content;
+        margin-right: 2rem;
+    }
+
+    .card img {
+        width: 100%;
+        object-fit: contain;
+        display: block;
+    }
+    
+    .card p {
+        margin-top: 0.75rem;
+        color: #333;
+        font-weight: 600;
+    }
+
+    .scroll-container {
+        display: flex;
+        align-items: flex-end;
+        width: fit-content;
+        margin-top: 20vh;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        background-color: beige;
+    }
+
+        .below-content {
+    padding: 4rem 2rem;
+    background: #f5f5f5;
+    }
+
+    .text-wrap {
+    max-width: 70ch;
+    }
+
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 7vw;
+            left: 1.5rem;
+        }
+
+        h2 {
+            left: 1.5rem;
+            bottom: 4vh;
+        }
+
+        h2 span {
+            font-size: 0.9rem;
+        }
+
+        .progress {
+            right: 1.5rem;
+            bottom: 4vh;
+            font-size: 0.7rem;
+        }
+
+        .progress-amount {
+            font-size: 1rem;
+        }
+    }
+
+
+    @media (max-width: 480px) {
+        h1 {
+            font-size: 10vw;
+            left: 1rem;
+            top: 1.5vh;
+        }
+
+        h2 {
+            left: 1rem;
+            bottom: 3vh;
+        }
+
+        h2 span {
+            display: inline;
+        }
+
+        .progress {
+            top: 2vh;
+            right: 1rem;
+            bottom: auto;
+            font-size: 0;
+        }
+
+        .progress-amount {
+            font-size: 1rem;
+            margin-left: 0;
+        }
+
+        .scroll-container {
+            margin-top: 12vh;
+        }
+    }

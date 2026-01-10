@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SVG Draw Heart</title>
+  <link rel="stylesheet" href="line_draw.css" />
+</head>
+<body>
+
+  <div class="heart-wrap">
+    <svg
+      id="heartSvg"
+      class="heart"
+      viewBox="0 0 800 800"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <!-- ⚠️ HIER deinen echten Herz-PATH einfügen -->
+      <path
+        id="heartPath"
+        d="M567.496,286.936c0,0 164.58,-394.196 276.07,-207.052c111.49,187.143 -123.435,387.56 -213.689,510.995c-90.254,123.435 -100.872,163.253 -100.872,163.253c0,0 -481.886,-401.159 -436.668,-634.43c13.819,-71.289 161.163,-162.125 281.379,-92.908c139.562,80.356 238.907,167.235 256.161,268.106"
+        fill="none"
+        stroke="black"
+        stroke-width="10"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  </div>
+
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="line_draw.js"></script>
+</body>
+</html>

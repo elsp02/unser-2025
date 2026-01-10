@@ -32,6 +32,7 @@ main {
 body {
     background-color: var(--background-color);
     margin: 0;
+    /*width: 100vw; ??*/
     font-family: var(--font-text);
     font-weight: var(--fw-text);
     font-size: var(--fs-text);
@@ -44,7 +45,7 @@ body {
     text-align: center;
 
 }
-.typo-text-special{
+.typo-text-end{
     text-align: end;
 }
 .typo-handwriting {

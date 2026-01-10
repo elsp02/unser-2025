@@ -1,0 +1,26 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Seite zentrieren */
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: white;
+}
+
+/* Responsiver Container */
+.heart-wrap {
+  width: min(70vmin, 420px); /* passt sich Hoch-/Querformat an */
+}
+
+/* SVG selbst */
+.heart {
+  width: 100%;
+  height: auto;
+  display: block;
+}
