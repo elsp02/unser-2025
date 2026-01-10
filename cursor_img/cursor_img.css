@@ -1,0 +1,35 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+  min-height: 100vh;
+  overflow: hidden;
+  font-size: 0.8em;
+}
+
+ul {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: inline-block;
+  border-bottom: 2px solid var(--color-surface25);
+  width: 100%;
+  padding: 2rem;
+}
+
+.container img.swipeimage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 9;
+  opacity: 0;
+  visibily: hidden;
+  pointer-events: none;
+}
