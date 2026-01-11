@@ -1,4 +1,7 @@
-<style>
+:root{
+    --img-h: clamp(200px, 270px, 380px); /* image width */
+    --img-r: 3/4; /* image aspect ratio */
+}
 
     @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');   
 
@@ -53,21 +56,20 @@
 
 
     .scroll-section {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    position: relative; /* statt fixed */
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        position: relative; /* statt fixed */
+        background-color: lightblue;
     }
 
     .card {
         background-color: turquoise;
-        width: 300px;
-        height: fit-content;
-        margin-right: 2rem;
+        width: fit-content;
     }
 
     .card img {
-        width: 100%;
+        height: var(--img-h);
         object-fit: contain;
         display: block;
     }
@@ -83,7 +85,7 @@
         align-items: flex-end;
         width: fit-content;
         margin-top: 20vh;
-        padding-left: 2rem;
+        gap: 1rem;
         padding-right: 2rem;
         background-color: beige;
     }

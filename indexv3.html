@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizontal Scrolling - Works</title>
+    <link rel="stylesheet" href="stylev3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lemon&family=Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.17/dist/lenis.css">
+</head>
+
+<body>
+    <main>
+        
+        <section class="scroll-section">
+            <p>gestartet sind wir mit viel</p>
+            <h1 class="typo-title">SCHNEE</h1>
+        <!-- <h2>OH Architecture <span>Inspired</span></h2> -->
+
+        
+            <div class="scroll-container">
+            
+                <div class="card">
+                    <img src="images/maurer_skitag.jpg" alt="">
+                    <p class="typo-handwriting">Main House</p>
+                </div>
+                
+                <div class="card">
+                    <img src="images/maurer_skitag.jpg" alt="">
+                    <p class="typo-handwriting">Jaloura Guest House</p>
+                </div>
+                
+                <div class="card">
+                    <img src="images/maurer_skitag.jpg" alt="Corner shot of the pool house showing its seamless open plan connection from inside to outside.">
+                    <p class="typo-handwriting">Myrtle Pool House</p>
+                </div>
+            </div>
+        </section>
+        
+        
+        <section class="stage-section">
+            <p>und dann kam schon</p>
+            <h1 class="typo-title">WIEN</h1>
+            <p class="typo-text-special">unser erster Urlaub</p>
+            <div class="stage-container">
+                <div id="pickle">
+                    <img src="images/maurer_skitag.jpg" alt="roadtrip mit pickle">
+                </div>
+                <div class="card img-stage">
+                    <img src="images/maurer_skitag.jpg" alt="">
+                </div>
+                <div class="heart heart trigger">
+                    <svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+                        <path class="heartPath" d="DEIN_PATH_HIER" fill="none" stroke="currentColor" stroke-width="10" />
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+       <span> weiter gings mit </span>
+       <span class="typo-title">PARTY,</span>
+        <section class="grid-section">
+            <div class="card right-img overlap">
+                <img src="images/maurer_skitag.jpg" alt="party">
+            </div>
+            <p class="typo-handwriting left-text">nils geburtstag</p>
+            <p class="typo-handwriting right-text">christopher street day</p>
+            <div class="card left-img overlap">
+                <img src="images/maurer_skitag.jpg" alt="party">
+            </div>
+        </section>
+
+
+       <h1 class="typo-title">NATUR</h1>
+        <section class="grid-section">
+            <div class="card right-img overlap">
+                <img src="images/maurer_skitag.jpg" alt="party">
+            </div>
+            <div class="sticker">
+                <img src="herz.svg" alt="">
+            </div>
+            <p class="typo-handwriting left-text">segel(versuche)</p>
+            <p class="typo-handwriting side-text">daumen hoch dafuer</p>
+            <p class="typo-handwriting right-text">berguebernachtung</p>
+            <div class="card left-img overlap">
+                <img src="images/maurer_skitag.jpg" alt="party">
+            </div>
+        </section>
+        <div class="picture-slider-container">
+            <div class="card">
+                <img src="images/berg_pano.jpg" alt="">
+                <p class="typo-handwriting">warteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee tada</p> </p>
+            </div>
+        </div>
+
+        <span>und ganz viel...</span>
+        <span class="typo-title">ESSEN</span>
+        <section class="grid-section expanded">
+            <div class="card right-img overlap">
+                <img src="images/maurer_skitag.jpg" alt="party">
+            </div>
+            <div class="sticker">
+                <img src="herz.svg" alt="">
+            </div>
+            <p class="typo-handwriting left-text">segel(versuche)</p>
+            <p class="typo-handwriting right-text">berguebernachtung</p>
+            <div class="card left-img overlap">
+                <img src="images/maurer_skitag.jpg" alt="party">
+            </div>
+            <div class="card right-img overlap">
+                <img src="images/maurer_skitag.jpg" alt="party">
+            </div>
+            <div class="sticker">
+                <img src="herz.svg" alt="">
+            </div>
+            <p class="typo-handwriting left-text">segel(versuche)</p>
+            <p class="typo-handwriting right-text">berguebernachtung</p>
+            <div class="card left-img overlap">
+                <img src="images/maurer_skitag.jpg" alt="party">
+            </div>
+        </section>
+
+        
+
+    </main>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="heart_animation.js"></script>
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", ()=>{
+            const lenis = new Lenis();
+            lenis.on("scroll", ScrollTrigger.update);
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 500);
+            });
+            gsap.ticker.lagSmoothing(0);
+
+            const scrollContainer = document.querySelector('.scroll-container');
+            const section = document.querySelector('.scroll-section');
+            const progressAmount = document.querySelector('.progress-amount');
+            
+
+            function initHorizontalScroll() {
+                
+                function getScrollAmount() {
+                    const scrollWidth = scrollContainer.scrollWidth;
+                    const windowWidth = window.innerWidth;
+                    
+                    return -(scrollWidth - windowWidth);
+                }
+
+                gsap.to(scrollContainer, {
+                    x: getScrollAmount,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: section,
+                        pin: true,
+                        start: "top top",
+                        end: () => `+=${-getScrollAmount()}`,
+                        scrub: true, 
+                        invalidateOnRefresh: true,
+                    }
+                });
+            }
+
+            initHorizontalScroll();
+        })
+
+    </script>
+
+</body>
+</html>
