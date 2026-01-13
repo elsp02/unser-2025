@@ -61,6 +61,8 @@
         text-align: end;
     }
 
+    
+
     .typo-text-mid{
         text-align: center;
         background-color: #868656;
@@ -95,6 +97,84 @@
         justify-self: center;
     }
 
+    .card-end p{
+        background-color: #F3F3F3;
+        justify-self: end;
+        margin-right: -20px;
+    }
+
+    .sticker{
+        position: absolute;
+        z-index: 40;
+        
+    }
+
+    .sticker img{
+        height: calc((var(--img-h))*1/2);
+        display: block;
+    }
+
+    .letter{
+        margin-inline: 1.5%;
+    }
+
+    .letter img{
+        height: calc(var(--fs-handwriting)*1.2);
+        padding: 0;
+    }
+
+    .food img{
+        background-color: antiquewhite;
+        height: calc(var(--img-h)*0.2);
+    }
+
+    #soup{
+        transform: translateX(calc(50vw + (var(--img-h) * 0.5)));
+
+    }
+
+    #noodle1{
+        transform: translateX(40vw);
+        top: calc(var(--img-h) - (var(--overlap)*2));
+
+    }
+
+    #noodle2{
+        transform: translateX(50vw);
+        top: calc((var(--img-h)*2) - (var(--overlap)*3));
+    }
+
+    #pizza{
+        transform: translateX(40vw);
+        top: calc((var(--img-h)*3) - (var(--overlap)*4));
+    }
+
+    #sushi{
+        transform: translateX(50vw);
+        top: calc((var(--img-h)*4) - (var(--overlap)*4.5));
+    }
+
+    .arrow-text{
+        position:absolute;
+        z-index: 10;
+        transform: translate(-50%, -50%);
+        background-color: #b87777;
+    }
+
+    .arrow{
+        margin-block: 5%;
+        height: calc((var(--img-h))*0.12);
+        width: max-content;
+        display: block;
+        color: var(--font-color);
+        background-color: #868656;
+    }
+
+    .arrow path {
+        fill: currentColor; /* wichtig: nur Linie wie Handschrift */
+
+    }
+
     /*------scroll-section---------*/
 
     .scroll-section {
@@ -116,7 +196,7 @@
     }
 
 
-    /*------stage-section---------*/
+    /*------stage-section-wien--------*/
 
     .stage-section{
         background-color: lightgreen;
@@ -130,11 +210,14 @@
         background-color: lightgrey;
         justify-items: center;
         margin-top: calc((var(--stage-overlap) + calc(var(--fs-text) * 1)) * -1);
+        overflow: visible; /*damit children auch drüber laufen können über die grenzen*/
     }
+
+    
 
     /*braucht man eigentlich nicht*/
     .stage-container-mitte{
-    justify-items: center;
+        justify-items: center;
     }
 
     #pickle{
@@ -162,9 +245,28 @@
         left: 50%;
         transform: translate(-50%, -50%);
         width: 70px;
+        stroke-width: var(--fs-handwriting);
         height: auto;
         z-index: 11;
 
+    }
+
+    .pickle-elena{
+        justify-items: start;
+        top: calc((var(--img-h))*0.5);
+        right: 50vw;
+    }
+
+    .pickle-lukas{
+        justify-items: start;
+        top: calc((var(--img-h))*0.2);
+        right: 50vw;
+    }
+
+    .pickle-maxl{
+        justify-items: start;
+        top: calc((var(--img-h))*1.2);
+        right: 50vw;
     }
 
     /*-----grid-section-----*/
@@ -223,15 +325,7 @@
         z-index:30
     }
 
-    .sticker{
-        position: absolute;
-        
-    }
-
-    .sticker img{
-        height: calc((var(--img-h))*1/2);
-        display: block;
-    }
+    
 
     #luuk{
         top: calc((var(--img-h))*0.9);
@@ -312,13 +406,21 @@
     #david{
         position: relative;
         margin-left: calc(var(--overlap) * -4/3);
-   
     }
 
     #david img{
         height: calc((var(--img-h))*1);
     }
 
+    .baron-david{
+        justify-items: start;
+        bottom: calc((var(--img-h))*2/5);
+        left: 60vw;
+    }
+    .teddy{
+        left:calc((var(--img-h)*3/4)*0.95);
+        bottom: calc((var(--fs-handwriting)*0.1));
+    }
     /*------stage-section-oktoberfest-----*/
     
     #arrow img{
@@ -354,6 +456,8 @@
         }
     }
 
+    /*---------scroll-section-entdecken-------*/
+
     #snus{
     position: fixed;        /* <- statt absolute */
     top: 0;
@@ -363,9 +467,25 @@
     will-change: transform;
 }
 
-/* optional: Bildgröße sauber über das img steuern */
-#snus img{
-  width: 120px;           /* deine gewünschte Größe */
-  height: auto;
-  display: block;
-}
+    /* optional: Bildgröße sauber über das img steuern */
+    #snus img{
+    width: 120px;           /* deine gewünschte Größe */
+    height: auto;
+    display: block;
+    }
+
+    /*----------stage-section-denkblase-----*/
+
+    .denkblase{
+        background-color: #5C2B2B;
+        justify-self: flex-end;
+        width: 200px;
+        stroke-width: var(--fs-handwriting);
+        height: auto;
+        z-index: 11;
+    }
+
+    #denkblase-groß{
+        background-color: #b87777;
+        align-self: flex-end;
+    }
