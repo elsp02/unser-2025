@@ -84,6 +84,10 @@
         border-radius: var(--img-border);
         background-color: lightpink;
     }
+
+    .horizontal img{
+        height: calc(var(--img-h)*0.8);
+    }
     
     .card p {
         background-color: lightslategrey;
@@ -230,8 +234,9 @@
     }
 
     #luuk{
-        top: calc((var(--img-h))*3/5);
-        left: 45%; /* falsch*/
+        top: calc((var(--img-h))*0.9);
+        left: calc((var(--img-h))*0.48);
+        transform: translate(-50%, -50%);
         grid-column: 3;
         z-index: 100;
     }
@@ -322,13 +327,46 @@
 
     #arrow-lukas{
         position:absolute;
-        top: calc(var(--img-h)* 0.38);
-        left: calc((var(--img-h)*4/3)*0.46);
-        transform: translate(-50%, -50%);
+        top: calc(var(--img-h)* 0.2);
+        left: calc((var(--img-h)*4/3)*0.32);
+        animation-iteration-count: infinite;
+        animation-name: twinkle;
+        animation-duration: 2s;
     }
 
     #arrow-elena{
         position:absolute;
-        top: calc(var(--img-h)* 0.35);
-        left: calc((var(--img-h)*4/3)*0.56);
+        top: calc(var(--img-h)* 0.24);
+        left: calc((var(--img-h)*4/3)*0.45);
+        animation-name: twinkle;
+        animation-iteration-count: infinite;
+        animation-duration: 2s;
+        }
+
+    @keyframes twinkle{
+        20% {
+            transform: scale(0.5);
+            opacity: 0.5;
+        }
+        80%{
+            transform: scale(1);
+            opacity: 1;
+        }
     }
+
+    #snus{
+    position: fixed;        /* <- statt absolute */
+    top: 50vh;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: 9999;
+    pointer-events: none;
+    will-change: transform;
+}
+
+/* optional: Bildgröße sauber über das img steuern */
+#snus img{
+  width: 120px;           /* deine gewünschte Größe */
+  height: auto;
+  display: block;
+}
