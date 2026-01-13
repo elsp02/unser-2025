@@ -3,10 +3,22 @@ body {
   overflow-x: hidden; /* verhindert Scrollen */
 }
 
+.container{
+  width: 100vw;
+  height: 200vh;
+  background-color: aqua;
+}
+
+.container2{
+  width: 100vw;
+  height: 150vh;
+  background-color: blue;
+}
+
 #flyImg {
-  position: absolute;
-  top: 50%;
-  left: 0;
+  position: fixed;
   width: 120px; /* oder auto */
+  top: 50vh;
+  left: 0;
   transform: translateY(-50%);
 }
