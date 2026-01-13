@@ -1,0 +1,85 @@
+<div class="heartWrap">
+  <svg id="heartBreak"
+       viewBox="-20 0 250 270"
+       class="heartSvg"
+       aria-label="heart break">
+
+    <defs>
+      <clipPath id="clipWhole" clipPathUnits="userSpaceOnUse">
+        <path id="pathWhole" d="M144 5.99979C116.002 7.39969 109.438 27.0187 109.574 40.2762C109.585 41.3793 107.817 41.9863 107.208 41.0666C100.135 30.3865 86.9916 14.0109 74.4998 9.5C56.4998 3 7.49969 3 5.99969 56.9998C4.49969 111 40.486 178.356 44.4999 185C58.8729 208.79 92.4056 241.423 119.289 258.55C119.702 258.813 120.223 258.749 120.543 258.377C135.846 240.612 164.224 189.64 183 159.5C209.257 117.351 201.5 80.4998 201.5 56.9998C201.5 33.4998 184 3.99979 144 5.99979Z"/>
+      </clipPath>
+
+      <clipPath id="clipLeft" clipPathUnits="userSpaceOnUse">
+        <path id="pathLeft" d="M56.4867 0.768666C74.3763 -0.225203 93.7476 38.7858 94.9662 42.2094C94.9843 42.2602 94.998 42.2904 95.0231 42.3381C98.5413 49.0371 106.399 63.6879 109.987 69.2686C114.487 76.2686 99.9868 86.7686 99.4868 92.2686C98.9868 97.7686 114.987 106.269 115.987 109.269C116.987 112.269 102.487 137.269 109.987 134.769C117.487 132.269 125.487 149.269 127.987 155.769C130.487 162.269 119.987 169.269 119.987 173.769C119.987 178.269 129.987 184.769 132.987 196.769C135.387 206.369 125.32 209.102 119.987 209.269C74.9868 211.269 45.9867 170.269 15.4867 106.269C-15.0133 42.2686 10.4865 28.7686 15.4867 21.7686C27.9869 4.26874 38.4867 1.76867 56.4867 0.768666Z"/>
+      </clipPath>
+
+      <clipPath id="clipRight" clipPathUnits="userSpaceOnUse">
+        <path id="pathRight" d="M133.708 29.2335C142.757 125.878 51.3907 185.022 3.88135 202.829C3.46338 202.986 3.00931 202.843 2.78637 202.456C-2.02248 194.115 3.19444 166.968 3.19444 162.585C3.19444 158.085 12.6944 154.085 18.6944 146.085C22.2822 141.302 19.3384 130.82 18.4958 127.709C18.292 126.957 17.6704 127.454 17.034 127.004C15.1462 125.668 15.264 121.914 25.1944 113.585C40.6944 100.585 35.1944 84.0854 31.6944 79.0854C28.1944 74.0854 45.1944 65.5854 49.6944 62.0854C54.1944 58.5854 45.6944 41.0854 45.1944 36.0854C44.6944 31.0854 46.6944 5.0852 83.6944 1.08519C113.173 -2.10168 129.229 18.2505 133.641 28.9534C133.678 29.0434 133.699 29.1366 133.708 29.2335Z"/>
+      </clipPath>
+    </defs>
+
+    <!-- Ganz -->
+    <g id="stateWhole" clip-path="url(#clipWhole)">
+      <image href="whole_heart_img.jpg"
+             x="-20" y="0" width="250" height="270"
+             preserveAspectRatio="xMidYMid slice"/>
+    </g>
+
+    <!-- Gebrochen -->
+    <g id="stateBroken" opacity="0">
+      <g id="halfLeft" clip-path="url(#clipLeft)">
+        <image href="whole_heart_img.jpg"
+               x="-20" y="0" width="250" height="270"
+               preserveAspectRatio="xMidYMid slice"/>
+      </g>
+
+      <g id="halfRight" clip-path="url(#clipRight)">
+        <image href="whole_heart_img.jpg"
+               x="-20" y="0" width="250" height="270"
+               preserveAspectRatio="xMidYMid slice"/>
+      </g>
+    </g>
+
+    <!-- Crack -->
+    <path id="crack"
+          d="M1.40737 0.280273C6.2407 12.2803 15.6074 37.4803 14.4074 42.2803C12.9074 48.2803 -2.59263 67.7803 1.40737 75.2803C4.60737 81.2803 11.4074 106.114 14.4074 117.78C8.90742 128.447 -1.39251 151.38 1.40737 157.78C4.20726 164.18 11.2407 200.114 14.4074 217.28"
+          fill="none"
+          stroke="#DBDBB6"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          opacity="0"/>
+  </svg>
+
+  <button id="breakBtn" class="breakBtn">break</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<script>
+  const tl = gsap.timeline({ paused: true });
+
+  const crack = document.querySelector("#crack");
+  if (crack) {
+    const crackLen = crack.getTotalLength();
+    gsap.set(crack, {
+      opacity: 1,
+      strokeDasharray: crackLen,
+      strokeDashoffset: crackLen
+    });
+  }
+
+  gsap.set("#stateWhole", { opacity: 1 });
+  gsap.set("#stateBroken", { opacity: 0 });
+  gsap.set("#halfLeft",  { x: 0, y: 0, rotation: 0, transformOrigin: "60% 55%" });
+  gsap.set("#halfRight", { x: 0, y: 0, rotation: 0, transformOrigin: "40% 55%" });
+
+  tl
+    .to("#crack", { strokeDashoffset: 0, duration: 0.35, ease: "power2.out" }, 0)
+    .to("#stateWhole", { opacity: 0, duration: 0.18, ease: "none" }, 0.18)
+    .to("#stateBroken", { opacity: 1, duration: 0.18, ease: "none" }, 0.18)
+    .to("#halfLeft",  { x: -35, y: 8, rotation: -10, duration: 0.6, ease: "power3.out" }, 0.25)
+    .to("#halfRight", { x:  35, y: 8, rotation:  10, duration: 0.6, ease: "power3.out" }, 0.25)
+    .to("#crack", { opacity: 0, duration: 0.35, ease: "power1.out" }, 0.55);
+
+  document.querySelector("#breakBtn").addEventListener("click", () => tl.restart());
+</script>

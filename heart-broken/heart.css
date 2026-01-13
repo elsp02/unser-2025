@@ -1,0 +1,19 @@
+.heartWrap{
+  width: min(420px, 90vw);
+  margin: 0 auto;
+  position: relative;
+}
+
+.heartSvg{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.breakBtn{
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}
