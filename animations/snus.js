@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "#snus",
     { x: "-150vw", y: "20vh", rotation: 0, transformOrigin: "0% 0%" },
     {
-      x: "150vw",
+      x: "200vw",
       y: "90vh",
       xPercent: -100,
       rotation: 820,

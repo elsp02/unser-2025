@@ -1,14 +1,13 @@
 window.addEventListener("DOMContentLoaded", () => {
-
   gsap.registerPlugin(ScrollTrigger);
 
   const svg  = document.querySelector("#Denk1Svg");
   const path = document.querySelector("#Denk1-path");
   const triggerContainer = document.querySelector("#denkblase-container");
+  const img = document.querySelector("#denkblase-img");
 
-  //  viewBox auf  Path zuschneiden
   const bbox = path.getBBox();
-  const padding = Math.max(bbox.width, bbox.height) * 0.08;
+  const padding = 0;
 
   const viewBox = `
     ${bbox.x - padding}
@@ -20,26 +19,28 @@ window.addEventListener("DOMContentLoaded", () => {
   svg.setAttribute("viewBox", viewBox);
   svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
 
-  //  Linienlänge ermitteln
   const length = path.getTotalLength();
 
-  // Startzustand: Linie unsichtbar
-  gsap.set(path, {
-    strokeDasharray: length,
-    strokeDashoffset: length
-  });
+  gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
+  gsap.set(img, { opacity: 0, scale: 0.95 });
 
-  // zeichnen trigger durch scrollen
-  gsap.to(path, {
-    strokeDashoffset: 0,
-    duration: 6,
-    ease: "power3.inOut",
+  const tl = gsap.timeline({
     scrollTrigger: {
       trigger: triggerContainer,
-      start: "top 50%",   //sobald stage-container oben am Viewport ist
-      once: true,         // nur einmal abspielen
-        markers: true     
+      start: "top 50%",
+      once: true,
+      markers: true
     }
   });
 
+  tl.to(path, {
+    strokeDashoffset: 0,
+    duration: 6,
+    ease: "power3.inOut"
+  }).to(img, {
+    opacity: 1,
+    scale: 1,
+    duration: 0.6,
+    ease: "power2.out"
+  }, "+=0.1"); // kleine Pause nach dem Zeichnen
 });
