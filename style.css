@@ -10,6 +10,13 @@
     --fw-text: 600; /* bold */
     --fs-handwriting: 1rem;
 
+    --fs-title-small: 2.6rem;
+    --fs-text-small: 1.3rem;
+    --fw-text-small: 600; /* bold */
+    --fs-handwriting-small: 1rem;
+
+    
+
     /* Special Effects
     --stroke-thin: 0.1px; */
 
@@ -42,7 +49,6 @@
 
     body {
         background-color: var(--background-color);
-        margin: 0;
         font-family: var(--font-text);
         font-weight: var(--fw-text);
         font-size: var(--fs-text);
@@ -51,18 +57,51 @@
         width: 100vw;
     }
 
+    .padding-bottom{
+        padding-bottom: 8px;
+    }
+
     .typo-title {
         font-family: var(--font-title);
         font-size: var(--fs-title);
-        text-align: center;
+        text-align: start;
         background-color: lightcoral;
+        width: 55vw;
+        align-self: flex-end;
+    }
+
+    .typo-title-start{
+        align-self: flex-start;
+        padding-left: var(--page-padding);
+    }
+
+    .typo-title-mid{
+        font-family: var(--font-title);
+        font-size: var(--fs-title);
+        background-color: lightcoral;
+        align-self: center;
 
     }
-    .typo-text-end{
+
+    .typo-text{
+        background-color: #807f7f;
+        width: 55vw;
         text-align: end;
     }
 
-    
+    .text-inline{
+        background-color: #7f8080;
+        align-self: center;
+    }
+
+
+    .typo-text-end{
+        width: 55vw;
+        background-color: #b87777;
+        align-self: flex-end;
+        text-align: start;
+    }
+
 
     .typo-text-mid{
         text-align: center;
@@ -74,6 +113,33 @@
         -webkit-text-stroke: var(--stroke-thin) currentColor;
     }
 
+        @media (max-width: 400px){
+        .typo-text{
+            width: 100vw;
+            text-align: start;
+            padding-left: var(--page-padding);
+        }
+        .typo-title{
+            width: 100vw;
+            text-align: end;
+            font-size: var(--fs-title-small);
+            padding-right: var(--page-padding);
+        }
+        .typo-handwriting{
+            font-size: var(--fs-handwriting-small);
+        }
+        .text-inline{
+            align-self: flex-start;
+            padding-left: var(--page-padding);
+        }
+        .typo-text-end{
+            text-align: end;
+            padding-right: var(--page-padding);
+        }
+        body{
+            font-size: var(--fs-text-small);
+        }
+}
     /*-------img-----*/
     .card {
         background-color: turquoise;
@@ -118,7 +184,7 @@
     .card-end p{
         background-color: #F3F3F3;
         align-self: end;
-        margin-right: -20px;
+        margin-right: -10px;
     }
 
     .sticker{
@@ -207,6 +273,10 @@
 
     }
 
+    .caption{
+        background-color: #DBDBB6;
+    }
+
     /*------scroll-section---------*/
 
     .scroll-section {
@@ -215,6 +285,9 @@
         overflow: hidden;
         position: relative; /* statt fixed */
         background-color: lightblue;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 24px;;
     }
 
     .scroll-container {
@@ -235,7 +308,9 @@
         background-color: lightgreen;
         position: relative;
         display: flex;
-        flex-direction: column; 
+        flex-direction: column;
+        padding-bottom: 24px;;
+
     }
 
     .stage-container{
@@ -252,8 +327,8 @@
     
 
     /*braucht man eigentlich nicht*/
-    .stage-container-mitte{
-        justify-items: center;
+    .stage-container-battle{
+        margin-top: calc((var(--stage-overlap)) * -1);
     }
 
     #pickle{
@@ -297,14 +372,14 @@
     .pickle-lukas{
         align-items: flex-start;
         transform: translate(-50%, -50%);
-        top: calc((var(--img-h))*0.2);
+        top: calc((var(--img-h))*0.3);
         left: calc(50vw - (var(--img-h) * 0.4));
     }
 
     .pickle-maxl{
         align-items: flex-end;
         top: calc((var(--img-h))*1.2);
-        right: calc(50vw - (((var(--img-h))) * 0.5));
+        right: calc(50vw - (((var(--img-h))) * 0.55));
     }
 
     .baron-david{
@@ -325,6 +400,10 @@
     .overlap{
         margin-top: calc(var(--overlap) * -1);
     
+    }
+
+    .half-overlap{
+        margin-top: calc(var(--overlap) * -0.5);
     }
     
     .no-overlap{
@@ -424,6 +503,8 @@
     .team{
         position: relative;
         background-color: #868656;
+        display: flex;
+
     }
 
     .team-right{
@@ -435,7 +516,7 @@
     }
 
     .team img{
-        height: calc(var(--img-h)*2/3);
+        height: calc(var(--img-h)*0.45);
         display: block;
     }
     
@@ -534,7 +615,7 @@
         position:relative;
         grid-column: 1;
         grid-row: 1;
-        width:calc((var(--img-h))*0.25);
+        width:calc((var(--img-h))*0.3);
         bottom: 15%;
         opacity: 0;
         scale: 0.95;      /* kleiner “pop” Effekt */
