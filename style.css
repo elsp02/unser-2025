@@ -10,6 +10,13 @@
     --fw-text: 600; /* bold */
     --fs-handwriting: 1rem;
 
+    --fs-title-small: 2.6rem;
+    --fs-text-small: 1.3rem;
+    --fw-text-small: 600; /* bold */
+    --fs-handwriting-small: 1rem;
+
+    
+
     /* Special Effects
     --stroke-thin: 0.1px; */
 
@@ -41,8 +48,7 @@
     }
 
     body {
-        background-color: var(--background-color);
-        margin: 0;
+        /*background-color: var(--background-color);*/
         font-family: var(--font-text);
         font-weight: var(--fw-text);
         font-size: var(--fs-text);
@@ -51,22 +57,55 @@
         width: 100vw;
     }
 
+    .padding-bottom{
+        padding-bottom: 8px;
+    }
+
     .typo-title {
         font-family: var(--font-title);
         font-size: var(--fs-title);
-        text-align: center;
-        background-color: lightcoral;
+        text-align: start;
+        /*background-color: lightcoral;*/
+        width: 55vw;
+        align-self: flex-end;
+    }
+
+    .typo-title-start{
+        align-self: flex-start;
+        padding-left: var(--page-padding);
+    }
+
+    .typo-title-mid{
+        font-family: var(--font-title);
+        font-size: var(--fs-title);
+        /*background-color: lightcoral;*/
+        align-self: center;
 
     }
-    .typo-text-end{
+
+    .typo-text{
+        /*background-color: #807f7f;*/
+        width: 55vw;
         text-align: end;
     }
 
-    
+    .text-inline{
+        /*background-color: #7f8080;*/
+        align-self: center;
+    }
+
+
+    .typo-text-end{
+        width: 55vw;
+        /*background-color: #b87777;*/
+        align-self: flex-end;
+        text-align: start;
+    }
+
 
     .typo-text-mid{
         text-align: center;
-        background-color: #868656;
+        /*background-color: #868656;*/
     }
     .typo-handwriting {
         font-family: var(--font-handwriting);
@@ -74,16 +113,43 @@
         -webkit-text-stroke: var(--stroke-thin) currentColor;
     }
 
+        @media (max-width: 400px){
+        .typo-text{
+            width: 100vw;
+            text-align: start;
+            padding-left: var(--page-padding);
+        }
+        .typo-title{
+            width: 100vw;
+            text-align: end;
+            font-size: var(--fs-title-small);
+            padding-right: var(--page-padding);
+        }
+        .typo-handwriting{
+            font-size: var(--fs-handwriting-small);
+        }
+        .text-inline{
+            align-self: flex-start;
+            padding-left: var(--page-padding);
+        }
+        .typo-text-end{
+            text-align: end;
+            padding-right: var(--page-padding);
+        }
+        body{
+            font-size: var(--fs-text-small);
+        }
+}
     /*-------img-----*/
     .card {
-        background-color: turquoise;
+        /*background-color: turquoise;*/
         width: fit-content;
         display: flex;
         flex-direction: column;
     }
 
     .card-row{
-        background-color: turquoise;
+        /*background-color: turquoise;*/
         width: fit-content;
         display: flex;
         flex-direction: row;
@@ -94,7 +160,7 @@
         object-fit: contain;
         display: block;
         border-radius: var(--img-border);
-        background-color: lightpink;
+        /*background-color: lightpink;*/
     }
 
     .card img {
@@ -102,7 +168,7 @@
         object-fit: contain;
         display: block;
         border-radius: var(--img-border);
-        background-color: lightpink;
+        /*background-color: lightpink;*/
     }
 
     .horizontal img{
@@ -110,15 +176,15 @@
     }
     
     .card p {
-        background-color: lightslategrey;
+        /*background-color: lightslategrey;*/
         margin-top: 0.75rem;
         align-self: center;
     }
 
     .card-end p{
-        background-color: #F3F3F3;
+        /*background-color: #F3F3F3;*/
         align-self: end;
-        margin-right: -20px;
+        margin-right: -10px;
     }
 
     .sticker{
@@ -134,7 +200,7 @@
 
     .letter{
         display: inline-flex;
-        background-color: #e6e61f;
+        /*background-color: #e6e61f;*/
         vertical-align: middle;
     }
 
@@ -147,14 +213,14 @@
     .letter-container{
         width: fit-content;
         height: auto;
-        background-color: #e6e61f;
+        /*background-color: #e6e61f;*/
         margin-bottom: 0;
 
     }
 
     
     .food img{
-        background-color: antiquewhite;
+        /*background-color: antiquewhite;*/
         height: calc(var(--img-h)*0.2);
     }
 
@@ -164,19 +230,19 @@
     }
 
     #noodle1{
-        transform: translateX(40vw);
+        transform: translateX(35vw);
         top: calc(var(--img-h) - (var(--overlap)*2));
 
     }
 
     #noodle2{
-        transform: translateX(50vw);
+        transform: translateX(55vw);
         top: calc((var(--img-h)*2) - (var(--overlap)*3));
     }
 
     #pizza{
-        transform: translateX(40vw);
-        top: calc((var(--img-h)*3) - (var(--overlap)*4));
+        transform: translateX(35vw);
+        top: calc((var(--img-h)*3) - (var(--overlap)*4.4));
     }
 
     #sushi{
@@ -190,7 +256,7 @@
         flex-direction: column;
         z-index: 10;
         transform: translate(-50%, -50%);
-        background-color: #b87777;
+        /*background-color: #b87777;*/
     }
 
     .arrow{
@@ -199,12 +265,16 @@
         width: max-content;
         display: block;
         color: var(--font-color);
-        background-color: #868656;
+        /*background-color: #868656;*/
     }
 
     .arrow path {
         fill: currentColor; /* wichtig: nur Linie wie Handschrift */
 
+    }
+
+    .caption{
+        /*background-color: #DBDBB6;*/
     }
 
     /*------scroll-section---------*/
@@ -214,7 +284,10 @@
         height: max-content;
         overflow: hidden;
         position: relative; /* statt fixed */
-        background-color: lightblue;
+        /*background-color: lightblue;*/
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 24px;;
     }
 
     .scroll-container {
@@ -224,7 +297,7 @@
         width: fit-content;
         /*margin-top: 20vh;*/
         gap: 1rem;
-        background-color: rgb(167, 167, 67);
+        /*background-color: rgb(167, 167, 67);*/
         padding-right: 2rem;
     }
 
@@ -232,10 +305,12 @@
     /*------stage-section-wien--------*/
 
     .stage-section{
-        background-color: lightgreen;
+        /*background-color: lightgreen;*/
         position: relative;
         display: flex;
-        flex-direction: column; 
+        flex-direction: column;
+        padding-bottom: 24px;;
+
     }
 
     .stage-container{
@@ -243,7 +318,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: lightgrey;
+        /*background-color: lightgrey;*/
         justify-items: center;
         margin-top: calc((var(--stage-overlap) + calc(var(--fs-text) * 1)) * -1);
         overflow: visible; /*damit children auch drüber laufen können über die grenzen*/
@@ -252,8 +327,8 @@
     
 
     /*braucht man eigentlich nicht*/
-    .stage-container-mitte{
-        justify-items: center;
+    .stage-container-battle{
+        margin-top: calc((var(--stage-overlap)) * -1);
     }
 
     #pickle{
@@ -261,7 +336,7 @@
         z-index: 10;
         margin-inline:auto;
         width: fit-content;
-        background-color: lime;
+        /*background-color: lime;*/
     }
 
     #pickle img{
@@ -271,7 +346,7 @@
 
     .img-stage{
         position: relative;
-        background-color: peru;
+        /*background-color: peru;*/
         margin-inline: auto;
     }
 
@@ -291,20 +366,20 @@
         align-items: flex-end;
         top: calc((var(--img-h))*0.5);
         transform: translate(-50%, -50%);
-        right: calc(50vw - (((var(--img-h))) * 0.5));
+        right: calc(50vw - (((var(--img-h))) * 0.6));
     }
 
     .pickle-lukas{
         align-items: flex-start;
         transform: translate(-50%, -50%);
-        top: calc((var(--img-h))*0.2);
+        top: calc((var(--img-h))*0.3);
         left: calc(50vw - (var(--img-h) * 0.4));
     }
 
     .pickle-maxl{
         align-items: flex-end;
-        top: calc((var(--img-h))*1.2);
-        right: calc(50vw - (((var(--img-h))) * 0.5));
+        top: calc((var(--img-h))*1.5);
+        right: calc(50vw - (((var(--img-h))) * 0.7));
     }
 
     .baron-david{
@@ -315,7 +390,7 @@
 
     /*-----grid-section-----*/
     .grid-section{
-        background-color: lightyellow;
+        /*background-color: lightyellow;*/
         display:grid;
         grid-template-columns: [c1] 1fr [c2] calc(var(--img-overlap)*2) [c3] 1fr;
         grid-auto-flow: row;
@@ -325,6 +400,10 @@
     .overlap{
         margin-top: calc(var(--overlap) * -1);
     
+    }
+
+    .half-overlap{
+        margin-top: calc(var(--overlap) * -0.5);
     }
     
     .no-overlap{
@@ -372,7 +451,7 @@
     }
 
     .side-text{ /*falsch position*/
-        background-color: #5C2B2B;
+        /*background-color: #5C2B2B;*/
         position: relative;
         padding-left: 0.5rem;
         writing-mode: vertical-lr;
@@ -394,7 +473,7 @@
     /*-------slider-section---------*/
 
     .slider-container{
-        background-color: #868656;
+        /*background-color: #868656;*/
         overflow-x: auto;
         overscroll-behavior-inline: contain;
         scroll-behavior: smooth;
@@ -417,13 +496,15 @@
         position: relative;
         display: flex;
         flex-direction: column;
-        background-color: aquamarine;
+        /*background-color: aquamarine;*/
         width: fit-content;
     }
 
     .team{
         position: relative;
-        background-color: #868656;
+        /*background-color: #868656;*/
+        display: flex;
+
     }
 
     .team-right{
@@ -435,7 +516,7 @@
     }
 
     .team img{
-        height: calc(var(--img-h)*2/3);
+        height: calc(var(--img-h)*0.45);
         display: block;
     }
     
@@ -509,7 +590,7 @@
     /*----------stage-section-denkblase-----*/
 
     #denkblase-groß{
-        background-color: #b87777;
+        /*background-color: #b87777;*/
         display: grid;
         grid-template-columns: 1;
         grid-template-rows: 1;
@@ -520,7 +601,7 @@
 
     }
     .denkblase{
-        background-color: #5C2B2B;
+        /*background-color: #5C2B2B;*/
         width: calc((var(--img-h))*3/4);
         stroke-width: var(--fs-handwriting);
         height: auto;
@@ -534,12 +615,12 @@
         position:relative;
         grid-column: 1;
         grid-row: 1;
-        width:calc((var(--img-h))*0.25);
+        width:calc((var(--img-h))*0.3);
         bottom: 15%;
         opacity: 0;
         scale: 0.95;      /* kleiner “pop” Effekt */
         pointer-events: none;
-        background-color: #868656;
+        /*background-color: #868656;*/
     }
 
     .img-lukas-denker{

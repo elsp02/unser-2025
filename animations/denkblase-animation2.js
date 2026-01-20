@@ -27,7 +27,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: triggerContainer,
-      start: "top 50%",
+      start: "top 60%",
       once: true,
       markers: true
     }
