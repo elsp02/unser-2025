@@ -1,0 +1,90 @@
+:root{
+    /*font-families*/
+    --font-title: 'Lemon';/* cursive;*/
+    --font-text: 'Times New Roman', Times, bold;
+    --font-handwriting: 'Liu Jian Mao Cao'; /* handwriting;*/
+    
+    /* Font Sizes 1rem ? 16px*/
+    --fs-title: 3rem;
+    --fs-text: 1.5rem;
+    --fw-text: 600; /* bold */
+    --fs-handwriting: 1rem;
+
+    --fs-title-small: 2.6rem;
+    --fs-text-small: 1.3rem;
+    --fw-text-small: 600; /* bold */
+    --fs-handwriting-small: 1rem;
+
+    
+
+    /* Special Effects
+    --stroke-thin: 0.1px; */
+
+    /* Colors */
+    --font-color: #323131;  
+    --background-color: #F3F3F3;
+    --green: #868656;
+    --light-green: #DBDBB6;
+    --red: #5C2B2B;
+    --blue: #2B495C;
+
+    /* Spacing */
+    --page-padding: clamp(1.25rem, 5vw, 2rem);
+    --img-overlap: clamp(1.25rem, 5vw, 3rem);
+    --overlap: clamp(24px, 8vw, 120px);
+
+
+    /*images*/
+    --img-h: clamp(250px, 60vw, 480px); /* image width */
+    --img-r: 3/4; /* image aspect ratio */
+    --img-border: 8px;
+    --stage-overlap: calc((var(--fs-title) * 0.65));
+    }
+
+     *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+    body {
+        /*background-color: var(--background-color);*/
+        font-family: var(--font-text);
+        font-weight: var(--fw-text);
+        font-size: var(--fs-text);
+        color: var(--font-color);
+        overflow-x: hidden;
+        width: 100vw;
+        min-height: 100vh;
+        background-color: #868656;
+        display: flex;
+        justify-content: center; /* horizontal */
+        align-items: center;     /* vertikal */
+    }
+
+    .typo-handwriting {
+        font-family: var(--font-handwriting);
+        font-size: var(--fs-handwriting);
+        -webkit-text-stroke: var(--stroke-thin) currentColor;
+    }
+
+    .gif-container{
+        background-color: #868656;
+        width: fit-content;
+    }
+
+    .card {
+        /*background-color: turquoise;*/
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card img {
+        height: var(--img-h);
+        object-fit: contain;
+        display: block;
+        border-radius: var(--img-border);
+        /*background-color: lightpink;*/
+    }
