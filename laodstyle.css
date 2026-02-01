@@ -35,7 +35,7 @@
 
 
     /*images*/
-    --img-h: clamp(250px, 60vw, 480px); /* image width */
+    --img-h: clamp(250px, 60vw, 400px); /* image width */
     --img-r: 3/4; /* image aspect ratio */
     --img-border: 8px;
     --stage-overlap: calc((var(--fs-title) * 0.65));
