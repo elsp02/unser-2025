@@ -275,7 +275,6 @@
     }
 
     .arrow{
-        margin-block: 0px;
         height: calc((var(--img-h))*0.12);
         width: max-content;
         display: block;
@@ -284,8 +283,8 @@
     }
 
     .arrow path {
-        fill: currentColor; /* wichtig: nur Linie wie Handschrift */
-
+        fill: lightblue; /* wichtig: nur Linie wie Handschrift */
+        stroke-width: var(--fs-handwriting);
     }
 
     .caption{
@@ -372,6 +371,7 @@
         transform: translate(-50%, -50%);
         width: 70px;
         stroke-width: var(--fs-handwriting);
+        stroke: lightblue;
         height: auto;
         z-index: 11;
 
