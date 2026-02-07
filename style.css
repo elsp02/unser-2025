@@ -217,8 +217,9 @@
     .letter-container{
         width: fit-content;
         height: auto;
-        /*background-color: #e6e61f;*/
+        background-color: #e6e61f;
         margin-bottom: 0;
+        padding-top: 0px;
 
     }
 
@@ -260,16 +261,26 @@
         flex-direction: column;
         z-index: 10;
         transform: translate(-50%, -50%);
-        /*background-color: #b87777;*/
+        background-color: #b87777;
+    }
+
+    .arrow-text-row{
+        position:absolute;
+        display: flex;
+        flex-direction: row;
+        z-index: 10;
+        transform: translate(-50%, -50%);
+        background-color: #b87777;
+        margin-inline: auto;
     }
 
     .arrow{
-        margin-block: 5%;
+        margin-block: 0px;
         height: calc((var(--img-h))*0.12);
         width: max-content;
         display: block;
         color: var(--font-color);
-        /*background-color: #868656;*/
+        background-color: #868656;
     }
 
     .arrow path {
@@ -288,7 +299,7 @@
         height: max-content;
         overflow: hidden;
         position: relative; /* statt fixed */
-        /*background-color: lightblue;*/
+        background-color: lightblue;
         display: flex;
         flex-direction: column;
         padding-bottom: 24px;;
@@ -309,7 +320,7 @@
     /*------stage-section-wien--------*/
 
     .stage-section{
-        /*background-color: lightgreen;*/
+        background-color: lightgreen;
         position: relative;
         display: flex;
         flex-direction: column;
@@ -322,7 +333,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        /*background-color: lightgrey;*/
+        background-color: lightgrey;
         justify-items: center;
         margin-top: calc((var(--stage-overlap) + calc(var(--fs-text) * 1)) * -1);
         overflow: visible; /*damit children auch drüber laufen können über die grenzen*/
@@ -515,7 +526,7 @@
         position: relative;
         display: flex;
         flex-direction: column;
-        /*background-color: aquamarine;*/
+        background-color: aquamarine;
         width: fit-content;
     }
 
@@ -550,8 +561,13 @@
 
     
     .teddy{
+        top: calc((var(--img-h))*0.95);
         left:calc((var(--img-h)*3/4)*0.95);
-        bottom: 0
+
+    }
+
+    #arrow-teddy{
+        padding-right: 5px;
     }
     /*------stage-section-oktoberfest-----*/
     

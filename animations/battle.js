@@ -11,7 +11,7 @@ window.addEventListener("DOMContentLoaded", () => {
     defaults: { duration: 2, ease: "power3.out" },
     scrollTrigger: {
       trigger: "#kastenlauf",
-      start: "top 20%",   // wenn stage oben am Viewport ist
+      start: "top 40%",   // wenn stage oben am Viewport ist
       toggleActions: "play none none none",
       markers: true       // nur zum Debuggen
     }
