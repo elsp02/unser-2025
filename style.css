@@ -3,7 +3,7 @@
     --font-title: 'Lemon';/* cursive;*/
     --font-text: 'Times New Roman', Times, bold;
     --font-handwriting: 'Liu Jian Mao Cao'; /* handwriting;*/
-    
+
     /* Font Sizes 1rem ? 16px*/
     --fs-title: 3rem;
     --fs-text: 1.5rem;
@@ -15,7 +15,7 @@
     --fw-text-small: 600; /* bold */
     --fs-handwriting-small: 1rem;
 
-    
+
 
     /* Special Effects
     --stroke-thin: 0.1px; */
@@ -178,7 +178,7 @@
     .horizontal img{
         height: calc(var(--img-h)*0.8);
     }
-    
+
     .card p {
         /*background-color: lightslategrey;*/
         margin-top: 0.75rem;
@@ -194,7 +194,7 @@
     .sticker{
         position: absolute;
         z-index: 40;
-        
+
     }
 
     .sticker img{
@@ -211,19 +211,18 @@
     .letter img{
         height: calc(var(--fs-handwriting)*1.2);
         padding-right: 2px;
- 
+
     }
 
     .letter-container{
         width: fit-content;
         height: auto;
-        background-color: #e6e61f;
+        /*background-color: #e6e61f;*/
         margin-bottom: 0;
-        padding-top: 0px;
 
     }
 
-    
+
     .food img{
         /*background-color: antiquewhite;*/
         height: calc(var(--img-h)*0.2);
@@ -261,30 +260,21 @@
         flex-direction: column;
         z-index: 10;
         transform: translate(-50%, -50%);
-        background-color: #b87777;
-    }
-
-    .arrow-text-row{
-        position:absolute;
-        display: flex;
-        flex-direction: row;
-        z-index: 10;
-        transform: translate(-50%, -50%);
-        background-color: #b87777;
-        margin-inline: auto;
+        /*background-color: #b87777;*/
     }
 
     .arrow{
+        margin-block: 5%;
         height: calc((var(--img-h))*0.12);
         width: max-content;
         display: block;
         color: var(--font-color);
-        background-color: #868656;
+        /*background-color: #868656;*/
     }
 
     .arrow path {
-        fill: lightblue; /* wichtig: nur Linie wie Handschrift */
-        stroke-width: var(--fs-handwriting);
+        fill: currentColor; /* wichtig: nur Linie wie Handschrift */
+
     }
 
     .caption{
@@ -298,7 +288,7 @@
         height: max-content;
         overflow: hidden;
         position: relative; /* statt fixed */
-        background-color: lightblue;
+        /*background-color: lightblue;*/
         display: flex;
         flex-direction: column;
         padding-bottom: 24px;;
@@ -319,7 +309,7 @@
     /*------stage-section-wien--------*/
 
     .stage-section{
-        background-color: lightgreen;
+        /*background-color: lightgreen;*/
         position: relative;
         display: flex;
         flex-direction: column;
@@ -332,13 +322,13 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: lightgrey;
+        /*background-color: lightgrey;*/
         justify-items: center;
         margin-top: calc((var(--stage-overlap) + calc(var(--fs-text) * 1)) * -1);
         overflow: visible; /*damit children auch drüber laufen können über die grenzen*/
     }
 
-    
+
 
     /*braucht man eigentlich nicht*/
     .stage-container-battle{
@@ -371,7 +361,6 @@
         transform: translate(-50%, -50%);
         width: 70px;
         stroke-width: var(--fs-handwriting);
-        stroke: lightblue;
         height: auto;
         z-index: 11;
 
@@ -414,13 +403,13 @@
 
     .overlap{
         margin-top: calc(var(--overlap) * -1);
-    
+
     }
 
     .half-overlap{
         margin-top: calc(var(--overlap) * -0.5);
     }
-    
+
     .no-overlap{
         margin-top: 0;
     }
@@ -489,10 +478,11 @@
         display: inline;
     }
     }
-    
+
 
     #luuk{
         top: calc((var(--img-h))*0.9);
+        left: calc((var(--img-h))*0.48);
         left: calc((var(--img-h))*0.5);
         transform: translate(-50%, -50%);
         grid-column: 3;
@@ -526,7 +516,7 @@
         position: relative;
         display: flex;
         flex-direction: column;
-        background-color: aquamarine;
+        /*background-color: aquamarine;*/
         width: fit-content;
     }
 
@@ -549,7 +539,7 @@
         height: calc(var(--img-h)*0.45);
         display: block;
     }
-    
+
     #david{
         position: relative;
         margin-left: calc(var(--overlap) * -4/3);
@@ -559,18 +549,13 @@
         height: calc((var(--img-h))*1);
     }
 
-    
+
     .teddy{
-        top: calc((var(--img-h))*0.95);
         left:calc((var(--img-h)*3/4)*0.95);
-
-    }
-
-    #arrow-teddy{
-        padding-right: 5px;
+        bottom: 0
     }
     /*------stage-section-oktoberfest-----*/
-    
+
     #arrow img{
         height: calc((var(--img-h))*1/6);
     }
@@ -666,5 +651,3 @@
     .overflow{
         overflow: visible;
     }
-
-    
