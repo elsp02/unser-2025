@@ -43,3 +43,9 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
+window.addEventListener("load", () => {
+  if (window.ScrollTrigger) {
+    requestAnimationFrame(() => ScrollTrigger.refresh());
+  }
+});

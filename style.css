@@ -53,8 +53,8 @@
         font-weight: var(--fw-text);
         font-size: var(--fs-text);
         color: var(--font-color);
-        overflow-x: hidden;
-        width: 100vw;
+        overflow-x: clip; /*verhindert horizontales scrollen, wenn Elemente über die Seite hinausragen*/
+        width: 100%;
     }
 
     .padding-bottom{
@@ -234,9 +234,8 @@
     }
 
     #noodle1{
-        transform: translateX(35vw);
-        top: calc(var(--img-h) - (var(--overlap)*2));
-
+    transform: translateX(35vw);
+    top: calc(var(--img-h) - (var(--overlap) * 2));
     }
 
     #noodle2{
@@ -252,6 +251,21 @@
     #sushi{
         transform: translateX(50vw);
         top: calc((var(--img-h)*4) - (var(--overlap)*4.5));
+    }
+
+    @media screen and (min-width: 500px){
+        #noodle1{
+        top: calc(var(--img-h) - (var(--overlap) * 1.5));
+        }
+        #noodle2{
+        transform: translateX(55vw);
+        top: calc((var(--img-h)*2) - (var(--overlap)*2.5));
+        }
+        #pizza{
+        transform: translateX(35vw);
+        top: calc((var(--img-h)*3) - (var(--overlap)*4.4));
+        }   
+
     }
 
     .arrow-text{

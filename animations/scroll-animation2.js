@@ -37,3 +37,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
             initHorizontalScroll();
         })
+
+window.addEventListener("load", () => {
+  if (window.ScrollTrigger) {
+    requestAnimationFrame(() => ScrollTrigger.refresh());
+  }
+});

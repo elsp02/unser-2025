@@ -44,3 +44,9 @@ window.addEventListener("DOMContentLoaded", () => {
     ease: "power2.out"
   }, "+=0.1"); // kleine Pause nach dem Zeichnen
 });
+
+window.addEventListener("load", () => {
+  if (window.ScrollTrigger) {
+    requestAnimationFrame(() => ScrollTrigger.refresh());
+  }
+});

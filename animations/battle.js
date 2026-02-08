@@ -51,3 +51,10 @@ window.addEventListener("DOMContentLoaded", () => {
       ease: "back.out(2.4)"
     }, "<-0.05")
 });
+
+
+window.addEventListener("load", () => {
+  if (window.ScrollTrigger) {
+    requestAnimationFrame(() => ScrollTrigger.refresh());
+  }
+});
