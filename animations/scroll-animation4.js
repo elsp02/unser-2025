@@ -25,8 +25,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
                     ease: "none",
                     scrollTrigger: {
                         trigger: section,
-                        pin: true,
-                        start: "top top",
+                        pin: "#mainContainer",
+                        start: "center center",
                         end: () => `+=${-getScrollAmount()}`,
                         scrub: true, 
                         markers: true,

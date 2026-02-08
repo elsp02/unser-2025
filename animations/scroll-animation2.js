@@ -1,3 +1,4 @@
+console.clear();
 document.addEventListener("DOMContentLoaded", ()=>{
             const lenis = new Lenis();
             lenis.on("scroll", ScrollTrigger.update);
@@ -25,8 +26,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
                     ease: "none",
                     scrollTrigger: {
                         trigger: section,
-                        pin: true,
-                        start: "top top",
+                        pin: "#mainContainer",
+                        start: "center center",
                         end: () => `+=${-getScrollAmount()}`,
                         scrub: true, 
                         markers: true,
@@ -36,4 +37,4 @@ document.addEventListener("DOMContentLoaded", ()=>{
             }
 
             initHorizontalScroll();
-        })
+                    })
