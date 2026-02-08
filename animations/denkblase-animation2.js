@@ -40,9 +40,9 @@ window.addEventListener("DOMContentLoaded", () => {
   }).to(img, {
     opacity: 1,
     scale: 1,
-    duration: 0.6,
-    ease: "power2.out"
-  }, "+=0.1"); // kleine Pause nach dem Zeichnen
+    duration: 0.5,
+    ease: "power3.inOut"
+  }, "+=0.01"); // kleine Pause nach dem Zeichnen
 });
 
 window.addEventListener("load", () => {

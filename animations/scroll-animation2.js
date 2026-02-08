@@ -26,10 +26,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
                     scrollTrigger: {
                         trigger: section,
                         pin: true,
-                        start: "top top",
+                        start: "top 10%",
                         end: () => `+=${-getScrollAmount()}`,
                         scrub: true, 
                         markers: true,
+                        anticipatePin: 1,
                         invalidateOnRefresh: true,
                     }
                 });
