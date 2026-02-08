@@ -169,6 +169,14 @@
         /*background-color: lightpink;*/
     }
 
+    .aspect-ratio-3-4{
+        aspect-ratio: 3/4;
+    }
+
+    .aspect-ratio-4-3{
+        aspect-ratio: 4/3;
+    }
+
     .horizontal img{
         height: calc(var(--img-h)*0.8);
     }
@@ -271,19 +279,7 @@
         /*background-color: #b87777;*/
     }
 
-    .arrow{
-        margin-block: 5%;
-        height: calc((var(--img-h))*0.12);
-        width: max-content;
-        display: block;
-        color: var(--font-color);
-        /*background-color: #868656;*/
-    }
-
-    .arrow path {
-        fill: currentColor; /* wichtig: nur Linie wie Handschrift */
-
-    }
+    
 
     .caption{
         /*background-color: #DBDBB6;*/
@@ -394,17 +390,34 @@
         right: calc(50vw - (((var(--img-h))) * 0.6));
     }
 
+    .pickle-elena img{
+        height: 50px;
+        background-color: violet;
+    }
+
     .pickle-lukas{
         align-items: flex-start;
         transform: translate(-50%, -50%);
         top: calc((var(--img-h))*0.3);
-        left: calc(50% - (var(--img-h) * 0.4));
+        left: calc(50vw - (var(--img-h) * 0.4));
+    }
+
+    .pickle-lukas img{
+        width: 50px;
+        background-color: violet;
     }
 
     .pickle-maxl{
+        background-color: wheat;
         align-items: flex-end;
         top: calc((var(--img-h))*1.5);
-        right: calc(50% - (((var(--img-h))) * 0.5));
+        transform: translate(-50%, -50%);
+        right: calc(50vw - (((var(--img-h))) * 0.5));
+    }
+
+    .pickle-maxl img{
+        width: 50px;
+        background-color: violet;
     }
 
     .baron-david{
