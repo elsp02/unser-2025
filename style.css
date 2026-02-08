@@ -387,32 +387,24 @@
 
     }
 
-    .arrow-text{
-        /*position: absolute;*/
-        display: flex;
-        flex-direction: column;
-        z-index: 10;
-        /*transform: translate(-50%, -50%);*/
-        background-color: #b87777;
-    }
-
     .pickle-elena{
-        position: absolute;
         align-items: flex-end;
         top: calc((var(--img-h))*0.5);
-        
+        transform: translate(-50%, -50%);
+        right: calc(50vw - (((var(--img-h))) * 0.6));
     }
 
     .pickle-lukas{
         align-items: flex-start;
+        transform: translate(-50%, -50%);
         top: calc((var(--img-h))*0.3);
-        left: 50%;
+        left: calc(50% - (var(--img-h) * 0.4));
     }
 
     .pickle-maxl{
         align-items: flex-end;
         top: calc((var(--img-h))*1.5);
-        right: 50%;
+        right: calc(50% - (((var(--img-h))) * 0.5));
     }
 
     .baron-david{
