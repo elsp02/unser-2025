@@ -38,7 +38,7 @@ window.addEventListener("DOMContentLoaded", () => {
       trigger: triggerContainer,
       start: "top 50%",
       once: true,
-      markers: true
+      markers: false,
     }
   });
 

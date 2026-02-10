@@ -38,7 +38,7 @@ window.addEventListener("DOMContentLoaded", () => {
       trigger: triggerContainer,
       start: "top 20%",   //sobald stage-container oben am Viewport ist
       once: true,         // nur einmal abspielen
-        markers: true     
+        markers: false,     
     }
   });
 

@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
                         start: "top 10%",
                         end: () => `+=${-getScrollAmount()}`,
                         scrub: true, 
-                        markers: true,
+                        markers: false,
                         anticipatePin: 1,
                         invalidateOnRefresh: true,
                     }

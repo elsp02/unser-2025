@@ -29,7 +29,7 @@ window.addEventListener("DOMContentLoaded", () => {
       trigger: triggerContainer,
       start: "top 60%",
       once: true,
-      markers: true
+      markers: false,
     }
   });
 

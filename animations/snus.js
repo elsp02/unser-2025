@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
         trigger: "#fourth-scroll-section",
         start: "top top",
         // optional zum Testen:
-        markers: true
+        markers: false,
       }
     }
   );

@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
                         start: "center center",
                         end: () => `+=${-getScrollAmount()}`,
                         scrub: true, 
-                        markers: true,
+                        markers: false,
                         anticipatePin: 1,
                         invalidateOnRefresh: true,
                     }

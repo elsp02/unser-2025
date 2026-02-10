@@ -13,7 +13,7 @@ window.addEventListener("DOMContentLoaded", () => {
       trigger: "#kastenlauf",
       start: "top 40%",   // wenn stage oben am Viewport ist
       toggleActions: "play none none none",
-      markers: true       // nur zum Debuggen
+      markers: false,       // nur zum Debuggen
     }
   });
   
