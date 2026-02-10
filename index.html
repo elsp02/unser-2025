@@ -93,11 +93,6 @@
                     <p class="typo-handwriting">lukas</p>
                 </div>
 
-                <div class="arrow-text pickle-maxl">
-                    <p class="typo-handwriting">maxl</p>
-                    <img src="images/arrow-p-maxl.svg" alt="">
-                </div>
-
             </div>
         </section>
 
@@ -138,10 +133,12 @@
                 <p class="typo-handwriting right-text overlap">berguebernachtung</p>
             </section> 
         
-        <div class="slider-container">
-            <div class="card">
-                <img src="images/pano_berg.jpg" alt="">
-                <p class="typo-handwriting">warteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee tada</p> </p>
+        <div class="slider-section" id="pano-container">
+            <div class="slider-track" id="pano-track"></div>
+                <div class="card" id="pano-bild">
+                    <img src="images/pano_berg.jpg" alt="">
+                    <p class="typo-handwriting">warteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee tada </p>
+                </div>
             </div>
         </div>
         </section>
@@ -212,7 +209,7 @@
                         <div class="card aspect-ratio-3-4 overflow">
                             <img src="images/schlaf3.jpg" alt="">
                             <div class="letter-container">
-                                <span class="typo-handwriting">* spass eigentlich nur wegen</span>
+                                <span class="typo-handwriting">* spass, nur wegen</span>
                                 <span class="letter"><img src="images/B.svg" alt=""></span><span class="typo-handwriting">ier</span>
                             </div>
                         </div>
@@ -327,8 +324,8 @@
         </section>
 
         <section class="scroll-section" id="fourth-scroll-section">
-            <p class="typo-text padding-bottom"> doch endlich konnten wir wieder zusammen</p>
-            <h1 class="typo-title padding-bottom"> ENTDECKEN</h1>
+            <p class="typo-text padding-bottom"> doch dann waren wir endlich wieder</p>
+            <h1 class="typo-title padding-bottom"> VEREINT</h1>
 
              <div class="scroll-container" id="fourth-scroll-container">
                 <div class="card aspect-ratio-3-4">
@@ -365,9 +362,9 @@
         </div>
 
         <section class="stage-section">
-            <p class="typo-text padding-bottom"> und</p>
+            <p class="typo-text-mid padding-bottom" id="text-mid-start"> und konnten zusammen</p>
             <h1 class="typo-title-mid padding-bottom"> OKTOBERFEST</h1>
-            <p class="typo-text-end padding-bottom"> feiern</p>
+            <p class="typo-text-mid padding-bottom"> feiern</p>
             <div class="stage-container no-overlap">
                 <div class="battle">
                     <div class="card aspect-ratio-4-3 horizontal">
@@ -384,12 +381,13 @@
         <section class="stage-section">
             <div class="stage-container no-overlap">
                 <div class="battle">
-                    <p id="heart-text"> aber leider wurde aus:</p>
+                    <p id="heart-text"> aber das hielt nicht lange:</p>
                      <div class="card">
                         <img id="myGif"
                             src="images/gif/heart.png"
                             data-gif="images/gif/giffyheart-v2.gif"
                             alt="Animation">
+                        <p class="typo-handwriting" id="click">... click</p>
                     </div>
                 </div>
             </div>
@@ -430,6 +428,7 @@
     <script src="animations/snus.js"></script>
     <script src="animations/battle.js"></script>
     <script src="animations/heart.js"></script>
+    <script src="animations/scroll-animation-pano.js"></script>
 
 
 </body>

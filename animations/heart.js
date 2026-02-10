@@ -3,5 +3,5 @@ const heartText = document.getElementById("heart-text");
 
 gif.addEventListener("click", () => {
   gif.src = gif.dataset.gif + "?t=" + Date.now();
-    heartText.textContent = "bald wieder ein:";
+    //heartText.textContent = "bald wieder ein:";
 });

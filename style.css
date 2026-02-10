@@ -134,6 +134,14 @@
             text-align: end;
             /*padding-right: var(--page-padding);*/
         }
+        .typo-text-mid{
+            text-align: end;
+            /*padding-right: var(--page-padding);*/
+        }
+        #text-mid-start{
+            width: 100vw;
+            text-align: start;
+        }
         body{
             font-size: var(--fs-text-small);
         }
@@ -300,10 +308,8 @@
     .header{
         position: relative;
         background-color: lightcyan;
-        text-align: start;
-        display: flex;
+        display: inline-flex;
         flex-direction: column;
-        
         /*background-color: lightcoral;*/
         
 
@@ -313,12 +319,13 @@
         font-size: calc(var(--fs-text)*1.2);
         color: var(--blue);
         background-color: limegreen;
-        
+        white-space: nowrap;
     }
 
     .header h1{
         font-family: var(--font-title);
-        font-size: calc(var(--fs-title)*2.0);
+        font-size: calc(var(--fs-title)*2.4);
+        white-space: nowrap;
     }
 
     #left-header{
@@ -327,31 +334,37 @@
     } 
 
     #right-header{
-        transform:translateY(20px)
+        transform:translateY(20px);
     } 
 
     .sticker-header {
     position: absolute;
     z-index: 40;
     transform-origin: center center;
+    width: 110%;   
     }
    
 
     .sticker-header img{
-        height: calc((var(--img-h))*1/2);
+        width: 100%;
+        height: auto;
         display: block;
         
     }
 
     #lukas-balaklava{
         animation: wobble-lukas 3.5s linear infinite;
-        position-anchor: --header;
-        bottom: anchor(bottom);
+        /*position-anchor: --header;*/
+        /*bottom: anchor(bottom);*/
+        transform-origin: 50% 100%;
+        bottom: 80%;
     }
 
     #elena-balaklava{
-        top: calc(var(--fs-title)*(-2));
         animation: wobble-elena 2.8s linear infinite;
+        transform-origin: 50% -100%;
+        top: 80%;
+        
     }
 
     @keyframes wobble-elena {
@@ -377,7 +390,7 @@
     /* Scroll Indicator */
     .scroll-indicator{
         position: absolute;
-        bottom: 20px;
+        bottom: 0px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -718,7 +731,7 @@
         overflow-x: auto;
         overscroll-behavior-inline: contain;
         scroll-behavior: smooth;
-        width: fit content;
+        width: fit-content;
         scrollbar-width: none;
         background-color: rgb(167, 167, 67); }
 
@@ -732,6 +745,17 @@
         gap: 1rem;
         background-color: saddlebrown;
     }
+
+    .slider-section{
+  overflow: hidden;              /* wichtig für GSAP horizontal scroll */
+  background-color: rgb(167, 167, 67);
+}
+
+.slider-track{
+  display: flex;
+  width: max-content;            /* Track darf breiter als Screen werden */
+  will-change: transform;
+}
     /*-------stage-section-kastenlauf--------*/
 
     .battle{
@@ -876,6 +900,15 @@
         background-color: #DBDBB6;
     }
 
+    /*------broken heart--------------*/
+    #click{
+        position: absolute;
+        bottom: 10px;
+        transform: translateX(calc((var(--img-h)*3/4)*0.5));
+    }
+
+
+    /*----------------------------------*/
     .overflow{
         overflow: visible;
     }
