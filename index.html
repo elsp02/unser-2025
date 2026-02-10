@@ -11,6 +11,21 @@
 
 <body>
     <main>
+        <!-- LOADER -->
+        <div id="loader" aria-hidden="true">
+        <div class="loader-inner">
+            <img
+            id="loader-gif"
+            src="images/gif/pongo_dance.gif"
+            alt=""
+            width="480"
+            height="480"
+            decoding="async"
+            />
+        </div>
+        </div>
+
+
         <div id="main-container">
 
         
@@ -138,7 +153,7 @@
             <div class="slider-track" id="pano-track">
                 <div class="card" id="pano-bild">
                     <img src="images/pano_berg.jpg" alt="">
-                    <p class="typo-handwriting">warteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee tada </p>
+                    <p class="typo-handwriting" id="slider-text">warteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee tada </p>
                 </div>
             </div>
         </div>
@@ -243,7 +258,7 @@
                         <div class="arrow-text baron-david">
                         <div class="letter-container">
                             <p class="typo-handwriting">alles unter aufsicht vom</p>
-                            <span class="letter"><img src="images/B.svg" alt=""></span><span class="typo-handwriting">ierbaron david</span>
+                            <span class="letter"><img src="images/B.svg" alt=""></span><span class="typo-handwriting">ierbaron</span>
                         </div>
                         <img src="images/arrow-p-david.svg" alt="">
                         
@@ -414,6 +429,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="animations/laoder.js"></script>
     <!-- <script src="animations/scroll-animation.js"></script> -->
     <!-- <script src="animations/scroll-animation2.js"></script> -->
     <!-- <script src="animations/scroll-animation3.js"></script> -->

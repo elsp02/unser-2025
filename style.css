@@ -286,6 +286,38 @@
         /*background-color: #b87777;*/
     }
 
+    /*-----------loader-section-------*/
+    /* Loader Overlay */
+    /* Loader Overlay */
+#loader {
+  position: fixed;
+  inset: 0;
+  background-color: #4E5F83;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Optional: leichter Fade-in fürs GIF beim Start */
+#loader-gif {
+  display: block;
+  max-width: min(70vw, 420px);
+  height: auto;
+}
+
+/* Seite am Anfang verstecken */
+#page {
+  opacity: 0;
+}
+
+    /* Seite am Anfang unsichtbar */
+    #main-container {
+    opacity: 0;
+    }
+
+
     
 
 
@@ -323,10 +355,10 @@
     .header p{
         font-family: var(--font-text);
         font-size: calc(var(--fs-text)*1.2);
-        color: var(--font-color);
+        color: var(--green);
         /*background-color: limegreen;*/
         white-space: nowrap;
-        transform: translateY(20%);
+        transform: translateY(60%);
     }
 
     .header h1{
@@ -371,7 +403,7 @@
 
     #lukas-balaklava{
         width: 95%;
-        animation: wobble-elena 2.8s linear infinite;
+        animation: wobble-elena 3.8s linear infinite;
         transform-origin: 50% -100%;
         top: 70%;
         z-index: 110;
@@ -388,13 +420,12 @@
     }
 
     @keyframes wobble-lukas {
-    0%   { transform: rotate(5deg) translateY(0); }
-    15%  { transform: rotate(-2deg) translateY(1px); }
-    30%  { transform: rotate(4deg) translateY(-2px); }
-    50%  { transform: rotate(-1.5deg) translateY(2px); }
-    70%  { transform: rotate(2deg) translateY(-1px); }
-    90%  { transform: rotate(-0.5deg) translateY(0); }
-    100% { transform: rotate(5deg) translateY(0); }
+    0%   { transform: rotate(0deg) translateY(0); }
+    20%  { transform: rotate(-2deg) translateY(2px); }
+    40%  { transform: rotate(2.5deg) translateY(-1px); }
+    60%  { transform: rotate(-1.5deg) translateY(1px); }
+    80%  { transform: rotate(1deg) translateY(0); }
+    100% { transform: rotate(0deg) translateY(0); }
     }
 
     /*_______________*/
@@ -750,13 +781,20 @@
         display: flex;
         flex-direction: column;
         padding-bottom: 24px;
-         z-index: 50;                   /* höher als andere */
-  isolation: isolate;   
+        /*z-index: 50;*/              /* höher als andere */
+        /*isolation: isolate;  */ 
 
         /*background-color: rgb(167, 167, 67);*/
      }
 
-    
+    #pano-bild p{
+        justify-self: start;
+        background-color: #DBDBB6;
+    }
+
+    #slider-text{
+        text-align: start;
+    }
 
     .slider-track{
         display: flex;
