@@ -138,6 +138,10 @@
             text-align: end;
             /*padding-right: var(--page-padding);*/
         }
+        .vs{
+            text-align: end;
+            /*padding-right: var(--page-padding);*/
+        }
         #text-mid-start{
             width: 100vw;
             text-align: start;
@@ -298,6 +302,7 @@
         align-items: center;
         gap: 0.2rem;
         width: fit-content;
+        transform: translateY(10%)
     }
 
     .header{
@@ -364,9 +369,9 @@
 
     @keyframes wobble-elena {
     0%   { transform: rotate(0deg) translateY(0); }
-    20%  { transform: rotate(3deg) translateY(-3px); }
-    40%  { transform: rotate(-4.5deg) translateY(2px); }
-    60%  { transform: rotate(2.5deg) translateY(-1px); }
+    20%  { transform: rotate(2deg) translateY(-2px); }
+    40%  { transform: rotate(-2.5deg) translateY(1px); }
+    60%  { transform: rotate(1.5deg) translateY(-1px); }
     80%  { transform: rotate(-1deg) translateY(0); }
     100% { transform: rotate(0deg) translateY(0); }
     }
@@ -544,7 +549,7 @@
 
     .img-stage{
         position: relative;
-        /*background-color: peru;*/*/
+        /*background-color: peru;*/
         margin-inline: auto;
     }
 
@@ -598,10 +603,11 @@
     .baron-david{
         align-items: flex-start;
         bottom: calc(var(--img-h)*0.65);
-        /*background-color: #868656;*/
-        left: calc(var(--img-h)*0.4);
-        transform: translateY(100%);
+        background-color: #868656;
+        left: calc(var(--img-h)*0.42);
+        bottom: calc((var(--img-h))*0.3)
     }
+ 
 
     .teddy img{
         height: calc((var(--img-h))*0.1);
@@ -708,7 +714,7 @@
     .spruch{
         /*background-color: #5C2B2B;*/
         align-self: end;
-        width: 65vw;
+        width: 70vw;
         text-align: start;
     }
 
@@ -789,6 +795,8 @@
         transform: translateX(calc(var(--img-h)*(-0.4)));
         
     }
+
+    
 
     #david img{
         height: calc((var(--img-h))*0.8);
@@ -882,8 +890,9 @@
         position:relative;
         grid-column: 1;
         grid-row: 1;
+        right: -10px; 
         width:calc((var(--img-h))*0.3);
-        bottom: 15%;
+        bottom: 16%;
         opacity: 0;
         scale: 0.95;      /* kleiner “pop” Effekt */
         pointer-events: none;
