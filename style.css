@@ -53,7 +53,7 @@
         font-weight: var(--fw-text);
         font-size: var(--fs-text);
         color: var(--font-color);
-        overflow-x: clip; /*verhindert horizontales scrollen, wenn Elemente über die Seite hinausragen*/
+        overflow-x: hidden; /*clip: verhindert horizontales scrollen, wenn Elemente über die Seite hinausragen*/
         width: 100%;
         background-color: var(--background-color);
     }
@@ -477,7 +477,7 @@
         height: max-content;
         overflow: visible;
         position: relative; /* statt fixed */
-        background-color: lightblue;
+        /*background-color: lightblue;*/
         display: flex;
         flex-direction: column;
         padding-bottom: 24px;
@@ -494,7 +494,7 @@
         overflow-x: auto;
         overscroll-behavior-x: contain;
         scroll-behavior: smooth;
-        background-color: rgb(156, 156, 119);
+        /*background-color: rgb(156, 156, 119);*/
         touch-action: pan-x;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
@@ -614,7 +614,7 @@
     .baron-david{
         align-items: flex-start;
         bottom: calc(var(--img-h)*0.65);
-        background-color: #868656;
+        /*background-color: #868656;*/
         left: calc(var(--img-h)*0.42);
         bottom: calc((var(--img-h))*0.3)
     }
@@ -740,37 +740,32 @@
 
     /*-------slider-section---------*/
 
-    .slider-container{
+    .slider-section{
         /*background-color: #868656;*/
-        overflow-x: auto;
-        overscroll-behavior-inline: contain;
-        scroll-behavior: smooth;
-        width: fit-content;
-        scrollbar-width: none;
+       width: 100%;
+        height: max-content;
+        overflow: hidden;
+        position: relative; /* statt fixed */
+        /*background-color: lightblue;*/
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 24px;
+         z-index: 50;                   /* höher als andere */
+  isolation: isolate;   
+
         /*background-color: rgb(167, 167, 67);*/
      }
 
-    .slider-container::-webkit-scrollbar{
-        display: none;
-    }
+    
 
-    .container{
+    .slider-track{
         display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        /*background-color: saddlebrown;*/
+        justify-self: start;
+        align-items: flex-start;
+        width: fit-content;
+        background-color: aqua;
+        
     }
-
-    .slider-section{
-  overflow: hidden;              /* wichtig für GSAP horizontal scroll */
-  /*background-color: rgb(167, 167, 67);*/
-}
-
-.slider-track{
-  display: flex;
-  width: max-content;            /* Track darf breiter als Screen werden */
-  will-change: transform;
-}
     /*-------stage-section-kastenlauf--------*/
 
     .battle{
@@ -932,7 +927,7 @@
     }
 
     .padding-bottom{
-        padding-bottom: 8px;
+        padding-bottom: 20px;
     }
 
     .no-padding-bottom{
