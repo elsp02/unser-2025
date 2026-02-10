@@ -22,7 +22,7 @@
 
     /* Colors */
     --font-color: #323131;  
-    --background-color: #edece3;
+    --background-color: #fbfaf2;
     --green: #868656;
     --light-green: #DBDBB6;
     --red: #5C2B2B;
@@ -55,6 +55,7 @@
         color: var(--font-color);
         overflow-x: clip; /*verhindert horizontales scrollen, wenn Elemente über die Seite hinausragen*/
         width: 100%;
+        background-color: var(--background-color);
     }
 
     
@@ -68,6 +69,10 @@
         align-self: flex-end;
     }
 
+    .title-smaller{
+        font-size: calc(var(--fs-title));
+    }
+
     .typo-title-start{
         align-self: flex-start;
         padding-left: var(--page-padding);
@@ -79,6 +84,10 @@
         /*background-color: lightcoral;*/
         align-self: center;
 
+    }
+
+    .typo-title-smaller{
+        font-size: calc(var(--fs-title)*0.9);
     }
 
     .typo-text{
@@ -140,7 +149,7 @@
         }
         #text-mid-end{
             width: 55vw;
-            text-align: start;
+            text-align: end;
             align-self: flex-end;
         }
         body{
