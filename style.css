@@ -134,17 +134,14 @@
             text-align: end;
             /*padding-right: var(--page-padding);*/
         }
-        .typo-text-mid{
-            text-align: end;
-            /*padding-right: var(--page-padding);*/
-        }
-        .vs{
-            text-align: end;
-            /*padding-right: var(--page-padding);*/
-        }
         #text-mid-start{
             width: 100vw;
             text-align: start;
+        }
+        #text-mid-end{
+            width: 55vw;
+            text-align: start;
+            align-self: flex-end;
         }
         body{
             font-size: var(--fs-text-small);
@@ -302,7 +299,6 @@
         align-items: center;
         gap: 0.2rem;
         width: fit-content;
-        transform: translateY(10%)
     }
 
     .header{
@@ -312,20 +308,24 @@
         flex-direction: column;
         /*background-color: lightcoral;*/
         
+        
 
     }
     .header p{
         font-family: var(--font-text);
         font-size: calc(var(--fs-text)*1.2);
-        color: var(--blue);
+        color: var(--font-color);
         /*background-color: limegreen;*/
         white-space: nowrap;
+        transform: translateY(20%);
     }
 
     .header h1{
         font-family: var(--font-title);
         font-size: calc(var(--fs-title)*2.4);
         white-space: nowrap;
+        z-index: 100;
+        color: var(--red);
     }
 
     #left-header{
@@ -352,18 +352,20 @@
         
     }
 
-    #lukas-balaklava{
+    #elena-balaklava{
         animation: wobble-lukas 3.5s linear infinite;
         /*position-anchor: --header;*/
         /*bottom: anchor(bottom);*/
         transform-origin: 50% 100%;
-        bottom: 80%;
+        bottom: 60%;
     }
 
-    #elena-balaklava{
+    #lukas-balaklava{
+        width: 95%;
         animation: wobble-elena 2.8s linear infinite;
         transform-origin: 50% -100%;
-        top: 80%;
+        top: 70%;
+        z-index: 110;
         
     }
 
@@ -466,7 +468,7 @@
         height: max-content;
         overflow: visible;
         position: relative; /* statt fixed */
-        /*background-color: lightblue;*/
+        background-color: lightblue;
         display: flex;
         flex-direction: column;
         padding-bottom: 24px;
@@ -483,7 +485,7 @@
         overflow-x: auto;
         overscroll-behavior-x: contain;
         scroll-behavior: smooth;
-        /*background-color: rgb(156, 156, 119);*/
+        background-color: rgb(156, 156, 119);
         touch-action: pan-x;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
@@ -680,7 +682,7 @@
         /*background-color: #5C2B2B;*/
         position: relative;
         padding-left: 0.5rem;
-        padding-top: calc(((var(--img-h))*1/2)*1/2);
+        padding-top: calc(((var(--img-h))*1/2)*0.55);
         writing-mode: vertical-lr;
         white-space: nowrap; /* Verhindert Zeilenumbruch */
         transform: rotate(180deg); /*textfluss richtung ändern*/
