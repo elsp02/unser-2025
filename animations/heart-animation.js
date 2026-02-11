@@ -36,9 +36,9 @@ window.addEventListener("DOMContentLoaded", () => {
     ease: "power2.inOut",
     scrollTrigger: {
       trigger: triggerContainer,
-      start: "top 20%",   //sobald stage-container oben am Viewport ist
+      start: "top 30%",   //sobald stage-container oben am Viewport ist
       once: true,         // nur einmal abspielen
-        markers: false,     
+        markers: true,     
     }
   });
 

@@ -16,7 +16,7 @@ document.body.style.overflow = "hidden";
 // Optional: kleines Einblenden des GIFs
 if (typeof gsap !== "undefined") {
   gsap.set(loader, { opacity: 1 });
-  gsap.fromTo(loaderGif, { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power2.out" });
+  gsap.fromTo(loaderGif, { opacity: 0 }, { opacity: 1, duration: 1, ease: "power2.out" });
 }
 
 window.addEventListener("load", () => {
