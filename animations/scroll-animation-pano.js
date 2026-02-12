@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", ()=>{
-            const lenis = new Lenis();
+            const lenis = (window.lenis ||= new Lenis({ smooth: true }));
+            //const lenis = new Lenis();
             lenis.on("scroll", ScrollTrigger.update);
             gsap.ticker.add((time) => {
                 lenis.raf(time * 1000);

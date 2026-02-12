@@ -37,9 +37,21 @@ function hideLoader() {
     onComplete: () => {
       loader.remove();
 
-      // Falls ScrollTrigger verwendet wird: neu berechnen
+      // 1) Lenis neu syncen (falls vorhanden)
+      // (je nachdem, wie du Lenis initialisierst, heißt die Variable evtl. anders)
+      if (window.lenis) {
+        window.lenis.resize();
+        window.lenis.scrollTo(window.lenis.scroll, { immediate: true }); // stabilisiert den State
+      }
+
+      // 2) GSAP/ScrollTrigger neu berechnen
       if (typeof ScrollTrigger !== "undefined") {
-        ScrollTrigger.refresh();
+        ScrollTrigger.refresh(true);
+      }
+
+      // 3) Falls du meinen AutoShow-Refresh Hook nutzt
+      if (window.__AUTO_SHOW_REFRESH__) {
+        window.__AUTO_SHOW_REFRESH__();
       }
     }
   });
@@ -53,5 +65,6 @@ function hideLoader() {
     opacity: 1,
     duration: 0.6,
     ease: "power2.out"
-  }, "<"); // gleichzeitig mit Loader-Fade
+  }, "<");
 }
+

@@ -286,31 +286,58 @@
         /*background-color: #b87777;*/
     }
 
+    /*-----------text-show------------*/
+    .autoShow { 
+        will-change: transform, opacity; 
+    }
+    
+    .autoSow{
+        animation: autoShowAnimation both;
+        animation-timeline: view(70% 5%);
+    }
+
+    @keyframes autoShowAnimation{
+        from{
+            opacity: 0;
+            background-color: #5C2B2B;
+            transform: translateY(200px) scale(1);
+        }
+        to{
+            opacity: 1;
+            background-color: #5C2B2B;
+            transform: translateY(0) scale(1);
+        }
+    }
+
     /*-----------loader-section-------*/
     /* Loader Overlay */
-    /* Loader Overlay */
-#loader {
-  position: fixed;
-  inset: 0;
-  background-color: #4E5F83;
-  z-index: 9999;
+    #loader {
+        position: fixed;
+        inset: 0;
+        background-color: #4E5F83;
+        z-index: 9999;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-/* Optional: leichter Fade-in fürs GIF beim Start */
-#loader-gif {
-  display: block;
-  max-width: min(70vw, 420px);
-  height: auto;
-}
+    .loader-inner{
+        /*background-color: #5c472b;*/
+        text-align: center
+    }
 
-/* Seite am Anfang verstecken */
-#page {
-  opacity: 0;
-}
+    /* Optional: leichter Fade-in fürs GIF beim Start */
+    #loader-gif {
+    display: block;
+    max-width: min(70vw, 420px);
+    height: auto;
+    }
+
+    /* Seite am Anfang verstecken */
+    #page {
+    opacity: 0;
+    }
 
     /* Seite am Anfang unsichtbar */
     #main-container {
@@ -662,7 +689,7 @@
         grid-template-columns: [c1] 1fr [c2] calc(var(--img-overlap)*2) [c3] 1fr;
         grid-auto-flow: row;
         position: relative;
-        padding-bottom: 24px;
+        /*padding-bottom: 24px;*/
     }
 
     .overlap{
@@ -781,7 +808,7 @@
         /*background-color: lightblue;*/
         display: flex;
         flex-direction: column;
-        /*z-index: 50;*/              /* höher als andere */
+        z-index: 50;              /* höher als andere */
         /*isolation: isolate;  */ 
 
         /*background-color: rgb(167, 167, 67);*/
