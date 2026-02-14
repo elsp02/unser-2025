@@ -92,7 +92,7 @@
 
     .typo-text{
         /*background-color: #807f7f;*/
-        width: 55vw;
+        width: 50vw;
         text-align: end;
     }
 
@@ -103,7 +103,7 @@
 
 
     .typo-text-end{
-        width: 55vw;
+        width: 50vw;
         /*background-color: #b87777;*/
         align-self: flex-end;
         text-align: start;
@@ -120,7 +120,7 @@
         -webkit-text-stroke: var(--stroke-thin) currentColor;
     }
 
-    @media (max-width: 400px){
+    @media (max-width: 575.98px){
         .typo-text{
             width: 100vw;
             text-align: start;
@@ -147,15 +147,19 @@
             width: 100vw;
             text-align: start;
         }
-        #text-mid-end{
-            width: 55vw;
-            text-align: end;
-            align-self: flex-end;
+        .text-long {
+        display: none;
         }
+
+        .text-short {
+            display: inline;
+        }
+        
         body{
             font-size: var(--fs-text-small);
         }
      }
+
     /*-------img-----*/
     .card {
         /*background-color: turquoise;*/
@@ -591,7 +595,7 @@
         flex-direction: column;
         align-items: center;
         /*background-color: lightgrey;*/
-        justify-items: center;
+        justify-content: center;
         margin-top: calc((var(--stage-overlap) + calc(var(--fs-text) * 1)) * -1);
         overflow: visible; /*damit children auch drüber laufen können über die grenzen*/
     }
@@ -672,7 +676,7 @@
     .baron-david{
         align-items: flex-start;
         bottom: calc(var(--img-h)*0.65);
-        background-color: #868656;
+        /*background-color: #868656;*/
         left: calc(var(--img-h)*0.42);
         bottom: calc((var(--img-h))*0.3)
     }
@@ -761,15 +765,6 @@
         display: none
     }
 
-    @media (max-width: 500px) {
-    .text-long {
-        display: none;
-    }
-
-    .text-short {
-        display: inline;
-    }
-    }
 
 
     #luuk{
@@ -786,12 +781,6 @@
         align-self: end;
         width: 70vw;
         text-align: start;
-    }
-
-    @media (min-width: 500px) {
-    .spruch {
-        width: 50vw;
-    }
     }
 
 
@@ -989,7 +978,13 @@
         position: absolute;
         bottom: 10px;
         transform: translateX(calc((var(--img-h)*3/4)*0.5));
-        color: var(--green)
+        color: var(--font-color)
+    }
+
+    /*---------orbit-control----------*/
+    #orbit-control-container{
+        height: 100vw;
+        background-color: #4E5F83;
     }
 
 
@@ -1013,10 +1008,9 @@
     .padding-right{
         padding-right: var(--page-padding);
     }
-    
 
     /*------------------------*/
-    @media screen and (min-width: 500px){
+    @media screen and (min-width: 575.98px){
         #soup{
         transform: translateX(calc(50vw + var(--img-h)*0.5));
         top: calc((var(--overlap) * 0.5));
@@ -1042,4 +1036,11 @@
         .pickle-lukas{
             left: calc(50vw - (var(--img-h) * 0.55));
         }
+        .spruch {
+        width: 50vw;
+        }
+        #text-mid-end{
+            width: 40vw;
+        }
+
     }

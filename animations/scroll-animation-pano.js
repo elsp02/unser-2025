@@ -37,61 +37,62 @@ document.addEventListener("DOMContentLoaded", ()=>{
                     }
                 });
             }
-            function fitWarteText() {
-            const card = document.querySelector("#pano-bild");
-            const p = document.querySelector("#slider-text");
-            const img = card?.querySelector("img");
-            if (!card || !p) return;
+    function fitWarteText() {
+        const breitecontainer = document.querySelector("#pano-container");
+        const p = document.querySelector("#slider-text");
+        const img = card?.querySelector("img");
+        if (!card || !p) return;
 
-            // Zielbreite: lieber die Bildbreite nehmen, sonst Cardbreite
-            // zuerst p auf Bildbreite setzen (einmalig / jedes mal ok)
-            if (img) p.style.width = img.getBoundingClientRect().width + "px";
-            const targetWidth = p.clientWidth;
-            // Mess-Element (unsichtbar) mit exakt denselben Font-Styles wie dein p
-            let measurer = document.querySelector("#warte-measurer");
-            if (!measurer) {
-                measurer = document.createElement("span");
-                measurer.id = "warte-measurer";
-                measurer.style.position = "absolute";
-                measurer.style.visibility = "hidden";
-                measurer.style.whiteSpace = "pre";
-                measurer.style.left = "-9999px";
-                measurer.style.top = "0";
-                document.body.appendChild(measurer);
-            }
+        // Zielbreite: lieber die Bildbreite nehmen, sonst Cardbreite
+        // zuerst p auf Bildbreite setzen (einmalig / jedes mal ok)
+        if (img) p.style.width = img.getBoundingClientRect().width + "px";
+        const targetWidth = breitecontainer.getBoundingClientRect().width;
 
-            // Styles vom <p> übernehmen (Font/Size/Letterspacing etc.)
-            const cs = getComputedStyle(p);
-            measurer.style.fontFamily = cs.fontFamily;
-            measurer.style.fontSize = cs.fontSize;
-            measurer.style.fontWeight = cs.fontWeight;
-            measurer.style.letterSpacing = cs.letterSpacing;
-            measurer.style.textTransform = cs.textTransform;
+        // Mess-Element (unsichtbar) mit exakt denselben Font-Styles wie dein p
+        let measurer = document.querySelector("#warte-measurer");
+        if (!measurer) {
+            measurer = document.createElement("span");
+            measurer.id = "warte-measurer";
+            measurer.style.position = "absolute";
+            measurer.style.visibility = "hidden";
+            measurer.style.whiteSpace = "pre";
+            measurer.style.left = "-9999px";
+            measurer.style.top = "0";
+            document.body.appendChild(measurer);
+        }
 
-            const prefix = "warte";
-            const suffix = " tada";
+        // Styles vom <p> übernehmen (Font/Size/Letterspacing etc.)
+        const cs = getComputedStyle(p);
+        measurer.style.fontFamily = cs.fontFamily;
+        measurer.style.fontSize = cs.fontSize;
+        measurer.style.fontWeight = cs.fontWeight;
+        measurer.style.letterSpacing = cs.letterSpacing;
+        measurer.style.textTransform = cs.textTransform;
 
-            // Basisbreite messen
-            measurer.textContent = prefix + suffix;
-            const baseWidth = measurer.getBoundingClientRect().width;
+        const prefix = "warte";
+        const suffix = " tada";
 
-            // Breite eines "e" messen
-            measurer.textContent = "e";
-            const eWidth = measurer.getBoundingClientRect().width || 1;
+        // Basisbreite messen
+        measurer.textContent = prefix + suffix;
+        const baseWidth = measurer.getBoundingClientRect().width;
 
-            // Wie viel Platz bleibt übrig?
-            const remaining = Math.max(0, targetWidth - baseWidth);
+        // Breite eines "e" messen
+        measurer.textContent = "e";
+        const eWidth = measurer.getBoundingClientRect().width || 1;
 
-            // Anzahl e berechnen (kleiner Sicherheitsabzug, damit es nicht wrappt)
-            const safety = 55; // Pixel
-            const countE = Math.max(0, Math.floor((remaining - safety) / eWidth));
+        // Wie viel Platz bleibt übrig?
+        const remaining = Math.max(0, targetWidth - baseWidth);
 
-            p.textContent = prefix + "e".repeat(countE) + suffix;
-            }
+        // Anzahl e berechnen (kleiner Sicherheitsabzug, damit es nicht wrappt)
+        const safety = 5; // Pixel
+        const countE = Math.max(0, Math.floor((remaining - safety) / eWidth));
+
+        p.textContent = prefix + "e".repeat(countE) + suffix;
+        }
 
             // Fonts & Bild laden beeinflussen die Messung -> nach load + nach resize
-            window.addEventListener("load", () => {
-            fitWarteText();
+        window.addEventListener("load", () => {
+        fitWarteText();
             });
 
             // wenn Fonts erst später ready sind
