@@ -560,6 +560,16 @@
         touch-action: pan-x;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
+        justify-content: flex-start; /* default: links starten */
+    }
+
+        /* Wenn alles reinpasst -> zentrieren */
+    .scroll-container.is-centered{
+    justify-content: center;
+    }
+
+    #text-end{
+        width: 55vw;
     }
 
     .scroll-container::-webkit-scrollbar {
@@ -574,7 +584,6 @@
     scroll-snap-align: start;
     }
         
-
 
 
     /*------stage-section-wien--------*/
@@ -1039,7 +1048,7 @@
         .spruch {
         width: 50vw;
         }
-        #text-mid-end{
+        .text-mid-end{
             width: 40vw;
         }
 
