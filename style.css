@@ -1041,13 +1041,24 @@
     }
     /*------------bottom-pinguin---------*/
     #penguin{
+        align-self: center;
+        bottom: env(safe-area-inset-bottom);
+        margin-top: auto;
         position: relative;
+    }
+
+    #penguin2{ 
+        position: sticky;
+        bottom: env(safe-area-inset-bottom);
+        display: flex;
+        justify-content: center;
     }
 
     #penguin img{
         height: calc((var(--img-h))*0.3);
         display: block;
     }
+    
     /*----------------------------------*/
     .overflow{
         overflow: visible;

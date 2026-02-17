@@ -67,8 +67,6 @@ floor.position.y = -0.2;
 floor.receiveShadow = true;
 scene.add(floor);
 
-let model = null;
-
 // Model laden
 const loader = new GLTFLoader();
 loader.load(
@@ -165,17 +163,17 @@ function setOrbitFullscreen(fullscreen) {
 
 // Doppelklick auf Button "Maximieren"
 if (orbitToggle) {
-  orbitToggle.addEventListener("dblclick", () => {
+  orbitToggle.addEventListener("pointerdown", () => {
     const fullscreen = document.body.classList.contains("orbit-fullscreen");
     setOrbitFullscreen(!fullscreen); //umtoggeln
   });
 }
 
 // Optional: Doppelklick direkt auf das Canvas toggelt auch
-renderer.domElement.addEventListener("dblclick", () => {
-  const fullscreen = document.body.classList.contains("orbit-fullscreen");
-  setOrbitFullscreen(!fullscreen);
-});
+//renderer.domElement.addEventListener("pointerdown", () => {
+  //const fullscreen = document.body.classList.contains("orbit-fullscreen");
+  //setOrbitFullscreen(!fullscreen);
+//});
 
 function animate() {
   requestAnimationFrame(animate);

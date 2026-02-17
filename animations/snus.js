@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ease: "none",
       scrollTrigger: {
         trigger: "#fourth-scroll-section",
-        start: "top top",
+        start: "top 70%",
         // optional zum Testen:
         markers: true,
       }
