@@ -953,46 +953,45 @@
 
     /*---------orbit-control----------*/
 
-#stage-orbit-container{
-    background-color: #868656;
-}
+/*#stage-orbit-container{*/
+    /*background-color: #401f91;*/
+/*}*/
     /* Rahmen wie "Preview Card" */
+    
 .orbit-frame{
-  width: 100%;
-  border: 2px solid rgba(255,255,255,0.25);
-  border-radius: var(--img-border);
-
-  background: rgba(232, 84, 21, 0.35);
+  position: relative;
+  height: calc(var(--img-h)*0.8);
+  /*background: rgba(232, 84, 21, 0.35);*/
 }
 
 /* Kopfzeile über dem Canvas */
-.orbit-topbar{
-  display: flex;
-  align-items: end;
-}
+/*.orbit-topbar{*/
+  /*display: flex;*/
+  /*align-items: end;*/
+/*}*/ 
 
 /* Text-Button */
-.orbit-toggle{
-  background-color: #00000038; /* 80 ist 50% transparent*/
-  width: 100%;
-  aspect-ratio: 16/9;
+.orbit-toggle-button{
   position: absolute;
+  width: 100%;
+  height: 100%;
   border: 1px solid rgba(255,255,255,0.35);
   border-radius: var(--img-border);
-  padding: 8px 12px;
   cursor: pointer;
   z-index: 300;
+  background-color: #00000038; /* 80 ist 50% transparent*/
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); 
 }
 
 /* Preview-Canvas Container */
 #orbit-control-container{
-  width: 100%;
-  aspect-ratio: 16 / 9;   /* Preview-Format */
-  background-color: #d3d1be;
-
+  height: 100%;
+  background-color: #b1a964;
   position: relative;
   overflow: hidden;
-
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: var(--img-border);
   /* verhindert, dass Mobile-Scroll die Seite bewegt */
   touch-action: none;
   /*overscroll-behavior: contain;*/

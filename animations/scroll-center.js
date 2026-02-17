@@ -6,7 +6,6 @@ function updateScrollCentering() {
     //ergebnis: true: inhalt breiter als container, false: inhalt schmäler 
     //wenn !hasOverflow (also false), dann soll in css is-centered wirken
     el.classList.toggle("is-centered", !hasOverflow);
-    el.classList.toggle("", hasOverflow);
 
     // optional: wenn zentriert, sicher auf Anfang
     if (!hasOverflow) el.scrollLeft = 0;

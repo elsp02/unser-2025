@@ -307,6 +307,7 @@
     /* Seite am Anfang unsichtbar */
     #main-container {
     opacity: 0;
+    height: fit-content;
     }
 
     /*------header-section---------*/
@@ -917,10 +918,8 @@
         width: calc((var(--img-h))*3/4);
         stroke-width: var(--fs-handwriting);
         position: relative;
-        right: -10px; 
-        height: auto;
+        right: -1rem; 
         z-index: 11;
-        display: block;
         grid-column: 1;
         grid-row: 1;
     }
@@ -929,7 +928,7 @@
         position:relative;
         grid-column: 1;
         grid-row: 1;
-        right: -10px; 
+        right: -1rem; 
         width:calc((var(--img-h))*0.3);
         bottom: 16%;
         opacity: 0;
@@ -940,8 +939,8 @@
 
     .img-lukas-denker{
         position: relative;
-        top: -10px;
-        left: -10px;
+        top: -1rem;
+        left: -1rem;
         transform: scaleX(-1);
         /*background-color: #DBDBB6;*/
     }
@@ -949,52 +948,41 @@
     /*------broken heart--------------*/
     #click{
         position: absolute;
-        bottom: 10px;
+        bottom: 1rem;
         transform: translateX(calc((var(--img-h)*3/4)*0.5));
         color: var(--font-color)
     }
 
     /*---------orbit-control----------*/
-    #stage-orbit-container{
-    background-color: #868656;
-    }
-        /* Rahmen wie "Preview Card" */
+        
     .orbit-frame{
-    width: 100%;
-    border: 2px solid rgba(255,255,255,0.25);
-    border-radius: var(--img-border);
-
-    background: rgba(232, 84, 21, 0.35);
-    }
-
-    /* Kopfzeile über dem Canvas */
-    .orbit-topbar{
-    display: flex;
-    align-items: end;
+    position: relative;
+    height: calc(var(--img-h)*0.8);
+    /*background: rgba(232, 84, 21, 0.35);*/
     }
 
     /* Text-Button */
-    .orbit-toggle{
-    background-color: #00000038; /* 80 ist 50% transparent*/
-    width: 100%;
-    aspect-ratio: 16/9;
+    .orbit-toggle-button{
     position: absolute;
-    border: 1px solid rgba(255,255,255,0.35);
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--blue);
     border-radius: var(--img-border);
-    padding: 8px 12px;
     cursor: pointer;
     z-index: 300;
+    background-color: #32313137; /* 80 ist 50% transparent*/
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); 
     }
 
     /* Preview-Canvas Container */
     #orbit-control-container{
-    width: 100%;
-    aspect-ratio: 16 / 9;   /* Preview-Format */
-    background-color: #d3d1be;
-
+    height: 100%;
+    background-color: var(--background-color);
     position: relative;
     overflow: hidden;
-
+    border: 1px solid var(--blue);
+    border-radius: var(--img-border);
     /* verhindert, dass Mobile-Scroll die Seite bewegt */
     touch-action: none;
     /*overscroll-behavior: contain;*/
@@ -1014,31 +1002,52 @@
     }
 
     /* wir hängen den Frame in einen "Host" (siehe JS),
+
     damit er alleine im main steht */
     .orbit-fullscreen-host{
     display: block;
     }
 
+    
     /* Frame nimmt dann wirklich den ganzen Screen */
     body.orbit-fullscreen .orbit-frame{
     position: fixed;
-    inset: 0;
     width: 100vw;
     height: 100vh;
-    border-radius: 0;
-    padding: 16px;
-    z-index: 9999;
-    background: #0b0f1a; /* oder transparent, wie du willst */
+    padding: var(--page-padding);
+    background: #4E5F83; /* oder transparent, wie du willst */
     }
 
     /* Canvas-Bereich füllt dann den restlichen Platz unter der Topbar */
     body.orbit-fullscreen #orbit-control-container{
+    position: relative;
     aspect-ratio: auto;
-    height: calc(100vh - 16px - 16px - 12px - 40px); 
     /* grob: viewport - padding - topbar */
     }
 
+    body.orbit-fullscreen .orbit-toggle-button{
+    position: absolute;
+    width: 10%;
+    height: 2rem;
+    top: 0.5rem;
+    right: 0.5rem;
+    border: 1px solid var(--blue);
+    border-radius: var(--img-border);
+    cursor: pointer;
+    z-index: 300;
+    background-color: #32313137; /* 80 ist 50% transparent*/
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); 
+    }
+    /*------------bottom-pinguin---------*/
+    #penguin{
+        position: relative;
+    }
 
+    #penguin img{
+        height: calc((var(--img-h))*0.3);
+        display: block;
+    }
     /*----------------------------------*/
     .overflow{
         overflow: visible;

@@ -4,12 +4,6 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
-/* =========================================================
-   0) DOM ELEMENTS (müssen im HTML existieren)
-   - #orbitFrame               (Rahmen/Preview-Card)
-   - #orbitToggle              (Button/Text "Maximieren")
-   - #orbit-control-container  (Canvas-Container, Element, in das der WebGL-Canvas reingehängt wird)
-   ========================================================= */
 
 const orbitFrame = document.getElementById("orbitFrame");
 const orbitToggle = document.getElementById("orbitToggle");
@@ -20,16 +14,12 @@ if (!container) {
   throw new Error(" #orbit-control-container wurde nicht gefunden.");
 }
 
-/* =========================================================
-   1) THREE.JS SETUP
-   ========================================================= */
-
    //1 = aspect ratio, 0.1 - 1000 ist near/far clipping plane (alles näher als 0.1 und weiter als 1000 wird abgeschnitten )
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
-camera.position.set(0, 5, 25);
-camera.lookAt(0, 0, 0);
+camera.position.set(0, 4, 4);
+camera.lookAt(0, 30, 0);
 
 const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
 renderer.shadowMap.enabled = true;
@@ -73,17 +63,19 @@ const floor = new THREE.Mesh(
   new THREE.MeshPhongMaterial({ color: "#fbfaf2", side: THREE.DoubleSide })
 );
 floor.rotation.x = -Math.PI / 2;
-floor.position.y = -1;
+floor.position.y = -0.2;
 floor.receiveShadow = true;
 scene.add(floor);
+
+let model = null;
 
 // Model laden
 const loader = new GLTFLoader();
 loader.load(
-  "gltf/bottle.gltf",
+  "scan/scan-elena.glb",
   (gltf) => {
     const object = gltf.scene;
-    object.scale.set(50, 50, 50);
+    object.scale.set(2, 2, 2);
     scene.add(object);
 
     object.traverse((child) => {
@@ -104,7 +96,8 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.enablePan = false;
 controls.maxPolarAngle = Math.PI / 2;
-controls.maxDistance = 60;
+controls.maxDistance = 6;
+controls.minDistance = 2;
 
 // Mobile Touch: 1 Finger rotate, 2 Finger pinch zoom
 controls.touches = {
@@ -112,17 +105,12 @@ controls.touches = {
   TWO: THREE.TOUCH.DOLLY_ROTATE,
 };
 
+
 // Verhindert normales touch verhalten 
 renderer.domElement.style.touchAction = "none";
 renderer.domElement.addEventListener("touchstart", (e) => e.preventDefault(), { passive: false });
 renderer.domElement.addEventListener("touchmove", (e) => e.preventDefault(), { passive: false });
 renderer.domElement.addEventListener("wheel", (e) => e.preventDefault(), { passive: false });
-
-/* =========================================================
-   2) FULLSCREEN TOGGLE (Maximieren / Minimieren)
-   - setzt/entfernt body Klasse: orbit-fullscreen
-   - verschiebt optional den Frame in einen Host, damit nur der sichtbar ist
-   ========================================================= */
 
    //speichert wo der frame vorher war
 let originalcontainer = null; // wo war die szene drin
@@ -188,13 +176,6 @@ renderer.domElement.addEventListener("dblclick", () => {
   const fullscreen = document.body.classList.contains("orbit-fullscreen");
   setOrbitFullscreen(!fullscreen);
 });
-
-// Optional: ESC zum Minimieren
-
-
-/* =========================================================
-   3) RENDER LOOP
-   ========================================================= */
 
 function animate() {
   requestAnimationFrame(animate);
