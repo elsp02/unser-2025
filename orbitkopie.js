@@ -8,7 +8,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
    0) DOM ELEMENTS (müssen im HTML existieren)
    - #orbitFrame               (Rahmen/Preview-Card)
    - #orbitToggle              (Button/Text "Maximieren")
-   - #orbit-control-container  (Canvas-Container, Element, in das der WebGL-Canvas reingehängt wird)
+   - #orbit-control-container  (Canvas-Container)
    ========================================================= */
 
 const orbitFrame = document.getElementById("orbitFrame");
@@ -24,7 +24,6 @@ if (!container) {
    1) THREE.JS SETUP
    ========================================================= */
 
-   //1 = aspect ratio, 0.1 - 1000 ist near/far clipping plane (alles näher als 0.1 und weiter als 1000 wird abgeschnitten )
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
@@ -34,11 +33,11 @@ camera.lookAt(0, 0, 0);
 const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
 renderer.shadowMap.enabled = true;
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-container.appendChild(renderer.domElement); //orbit-control container in der die szene reingesetzt wird
+container.appendChild(renderer.domElement);
 
-// Resize an Container (nicht an window!) -> szene wird größentechnisch an container angepasst
+// Resize an Container (nicht an window!)
 function resizeToContainer() {
-  const w = container.clientWidth || 1; //Falls clientWidth kurz 0 ist (z.B. Element unsichtbar), bekommst ich nicht aspect = 0/0
+  const w = container.clientWidth || 1;
   const h = container.clientHeight || 1;
 
   renderer.setSize(w, h, false);
@@ -112,7 +111,7 @@ controls.touches = {
   TWO: THREE.TOUCH.DOLLY_ROTATE,
 };
 
-// Verhindert normales touch verhalten 
+// Verhindert, dass Mobile beim Wischen im Canvas die Seite scrollt
 renderer.domElement.style.touchAction = "none";
 renderer.domElement.addEventListener("touchstart", (e) => e.preventDefault(), { passive: false });
 renderer.domElement.addEventListener("touchmove", (e) => e.preventDefault(), { passive: false });
@@ -124,42 +123,38 @@ renderer.domElement.addEventListener("wheel", (e) => e.preventDefault(), { passi
    - verschiebt optional den Frame in einen Host, damit nur der sichtbar ist
    ========================================================= */
 
-   //speichert wo der frame vorher war
-let originalcontainer = null; // wo war die szene drin
-let originalnextcontainer = null; //welches element kommt danach? - damit an richtige stelle zurücksetzen
+let originalParent = null;
+let originalNextSibling = null;
 
-// Host = container den ich fullscreen in main packe und nur dafür erstelle
+// Host (damit der Frame im Fullscreen alleine steht)
 const host = document.createElement("div");
 host.className = "orbit-fullscreen-host";
 
-function setOrbitFullscreen(fullscreen) {
-  document.body.classList.toggle("orbit-fullscreen", fullscreen);
+function setOrbitFullscreen(isFullscreen) {
+  document.body.classList.toggle("orbit-fullscreen", isFullscreen);
 
-  // fallback zeilen (nicht unbedingt notwendig) Wenn kein orbitFrame existiert, skippen wir nur die CSS-Klasse
+  // Wenn kein orbitFrame existiert, skippen wir nur die CSS-Klasse
   if (!orbitFrame) {
-    if (orbitToggle) orbitToggle.textContent = fullscreen ? "Minimieren" : "Maximieren";
+    if (orbitToggle) orbitToggle.textContent = isFullscreen ? "Minimieren" : "Maximieren";
     resizeToContainer();
     return;
   }
 
-  //wenn ifFullscreen dann fullscreen aktivieren
-  if (fullscreen) {
+  if (isFullscreen) {
     // Originalposition merken
-    originalcontainer = orbitFrame.parentNode;
-    originalnextcontainer = orbitFrame.nextSibling;
+    originalParent = orbitFrame.parentNode;
+    originalNextSibling = orbitFrame.nextSibling;
 
     // Frame in den Host schieben und Host ins main setzen
     host.appendChild(orbitFrame);
     document.querySelector("main")?.appendChild(host);
 
     if (orbitToggle) orbitToggle.textContent = "Minimieren";
-  } 
-  //ansonsten deaktivieren
-    else {
+  } else {
     // Zurück an die Originalposition
-    if (originalcontainer) {
-      if (originalnextcontainer) originalcontainer.insertBefore(orbitFrame, originalnextcontainer);
-      else originalcontainer.appendChild(orbitFrame);
+    if (originalParent) {
+      if (originalNextSibling) originalParent.insertBefore(orbitFrame, originalNextSibling);
+      else originalParent.appendChild(orbitFrame);
     }
     if (host.parentNode) host.parentNode.removeChild(host);
 
@@ -178,19 +173,23 @@ function setOrbitFullscreen(fullscreen) {
 // Doppelklick auf Button "Maximieren"
 if (orbitToggle) {
   orbitToggle.addEventListener("dblclick", () => {
-    const fullscreen = document.body.classList.contains("orbit-fullscreen");
-    setOrbitFullscreen(!fullscreen); //umtoggeln
+    const nowFull = document.body.classList.contains("orbit-fullscreen");
+    setOrbitFullscreen(!nowFull);
   });
 }
 
 // Optional: Doppelklick direkt auf das Canvas toggelt auch
 renderer.domElement.addEventListener("dblclick", () => {
-  const fullscreen = document.body.classList.contains("orbit-fullscreen");
-  setOrbitFullscreen(!fullscreen);
+  const nowFull = document.body.classList.contains("orbit-fullscreen");
+  setOrbitFullscreen(!nowFull);
 });
 
 // Optional: ESC zum Minimieren
-
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && document.body.classList.contains("orbit-fullscreen")) {
+    setOrbitFullscreen(false);
+  }
+});
 
 /* =========================================================
    3) RENDER LOOP

@@ -315,6 +315,7 @@
 
     /*------header-section---------*/
     .header-section{
+        background-color: lightcoral;
         height: 100vh;
         position: relative;
         display: flex;
@@ -324,7 +325,7 @@
     }
 
     .header-container{
-        position: relative;
+        background-color: lightpink;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -334,14 +335,12 @@
 
     .header-container p{
         position: absolute;
-        font-family: var(--font-handwriting);
-        font-size: calc(var(--fs-text)*2);
+        font-family: var(--font-text);
+        font-size: calc(var(--fs-text)*1.2);
         color: var(--green);
-        /*background-color: limegreen;*/
+        background-color: limegreen;
+        white-space: nowrap;
         z-index: 200;
-        top: 45%;
-        left: 50%;
-        transform: translate(-50%, -50%);
     }
 
     .header h1{
@@ -358,11 +357,14 @@
         position: relative;
         display: flex;
         flex-direction: row;
+        background-color: lightcyan;
+        display: inline-flex;
         height: min-content;
     }
 
     #left-header{
         transform:translateX(-28%);
+        anchor-name: --header;
     } 
 
     #right-header{
@@ -372,38 +374,32 @@
     .sticker-header {
     position: absolute;
     z-index: 40;
-    width: 120px;
+    transform-origin: center center;
+    width: 110%;   
     }
+   
 
-    #elena-balaklava{
-        /*animation: wobble-elena 3.5s linear infinite;*/
-        align-self: start;
-        left: 0;           /* an linke Kante vom right-header */
-        top: 0;
-        transform: translate(-100%, -0%);
-    }
-
-    #lukas-balaklava{
-        /*animation: wobble-lukas 3.8s linear infinite;*/
-        z-index: 110;
-        align-self: end;
-        right: 0;          /* an rechte Kante vom left-header */
-        bottom: 0;            /* je nach Wunsch: z.B. oben am Text */
-        transform: translate(100%, 0%); 
+    .sticker-header img{
+        width: 100%;
+        height: auto;
+        display: block;
         
     }
 
-    #elena-balaklava img{
-        width: 100%;
-        animation: wobble-elena 3.5s linear infinite;
-    }
-
-    #lukas-balaklava img{
-        width: 100%;
+    #elena-balaklava{
         animation: wobble-lukas 3.5s linear infinite;
+        /*position-anchor: --header;*/
+        /*bottom: anchor(bottom);*/
     }
 
-    @keyframes wobble-lukas {
+    #lukas-balaklava{
+        width: 95%;
+        animation: wobble-elena 3.8s linear infinite;
+        z-index: 110;
+        
+    }
+
+    @keyframes wobble-elena {
     0%   { transform: rotate(0deg) translateY(0); }
     20%  { transform: rotate(2deg) translateY(-2px); }
     40%  { transform: rotate(-2.5deg) translateY(1px); }
@@ -412,7 +408,7 @@
     100% { transform: rotate(0deg) translateY(0); }
     }
 
-    @keyframes wobble-elena {
+    @keyframes wobble-lukas {
     0%   { transform: rotate(0deg) translateY(0); }
     20%  { transform: rotate(-2deg) translateY(2px); }
     40%  { transform: rotate(2.5deg) translateY(-1px); }
@@ -426,10 +422,13 @@
     /* Scroll Indicator */
     .scroll-indicator{
         position: absolute;
-        bottom: 50px;
+        bottom: 0px;
         display: flex;
         flex-direction: column;
-        background-color: var(--green);
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        /*background-color: violet;*/
     }
 
     .scroll-indicator-line{
@@ -437,16 +436,18 @@
     height: 60px;
     overflow: hidden;
     position: relative;
-    color: var(--light-green);
     }
 
     .scroll-indicator-line span{
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background: currentColor;
 
     transform-origin: top;
+    transform: scaleY(0) translateY(0);
     opacity: 0;
 
     animation: scrollLine 2.6s ease-in-out infinite;
@@ -499,7 +500,7 @@
         /*background-color: lightblue;*/
         display: flex;
         flex-direction: column;
-        padding-bottom: 2rem;
+        padding-bottom: 24px;
         padding-inline: var(--page-padding);
     }
 
@@ -553,7 +554,7 @@
         position: relative;
         display: flex;
         flex-direction: column;
-        padding-bottom: 2rem;
+        padding-bottom: 24px;
         padding-inline: var(--page-padding);
 
     }
@@ -951,88 +952,89 @@
     }
 
     /*---------orbit-control----------*/
-    #stage-orbit-container{
+
+#stage-orbit-container{
     background-color: #868656;
-    }
-        /* Rahmen wie "Preview Card" */
-    .orbit-frame{
-    width: 100%;
-    border: 2px solid rgba(255,255,255,0.25);
-    border-radius: var(--img-border);
+}
+    /* Rahmen wie "Preview Card" */
+.orbit-frame{
+  width: 100%;
+  border: 2px solid rgba(255,255,255,0.25);
+  border-radius: var(--img-border);
 
-    background: rgba(232, 84, 21, 0.35);
-    }
+  background: rgba(232, 84, 21, 0.35);
+}
 
-    /* Kopfzeile über dem Canvas */
-    .orbit-topbar{
-    display: flex;
-    align-items: end;
-    }
+/* Kopfzeile über dem Canvas */
+.orbit-topbar{
+  display: flex;
+  align-items: end;
+}
 
-    /* Text-Button */
-    .orbit-toggle{
-    background-color: #00000038; /* 80 ist 50% transparent*/
-    width: 100%;
-    aspect-ratio: 16/9;
-    position: absolute;
-    border: 1px solid rgba(255,255,255,0.35);
-    border-radius: var(--img-border);
-    padding: 8px 12px;
-    cursor: pointer;
-    z-index: 300;
-    }
+/* Text-Button */
+.orbit-toggle{
+  background-color: #00000038; /* 80 ist 50% transparent*/
+  width: 100%;
+  aspect-ratio: 16/9;
+  position: absolute;
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: var(--img-border);
+  padding: 8px 12px;
+  cursor: pointer;
+  z-index: 300;
+}
 
-    /* Preview-Canvas Container */
-    #orbit-control-container{
-    width: 100%;
-    aspect-ratio: 16 / 9;   /* Preview-Format */
-    background-color: #d3d1be;
+/* Preview-Canvas Container */
+#orbit-control-container{
+  width: 100%;
+  aspect-ratio: 16 / 9;   /* Preview-Format */
+  background-color: #d3d1be;
 
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  overflow: hidden;
 
-    /* verhindert, dass Mobile-Scroll die Seite bewegt */
-    touch-action: none;
-    /*overscroll-behavior: contain;*/
-    }
+  /* verhindert, dass Mobile-Scroll die Seite bewegt */
+  touch-action: none;
+  /*overscroll-behavior: contain;*/
+}
 
-    #orbit-control-container canvas{
-    display: block;
-    width: 100%;
-    height: 100%;
-    }
+#orbit-control-container canvas{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 
-    /* ------- Fullscreen Mode (über Klasse am body) ------- */
+/* ------- Fullscreen Mode (über Klasse am body) ------- */
 
-    /* alles außer dem 3D Frame ausblenden */
-    body.orbit-fullscreen main > *:not(.orbit-fullscreen-host){
-    display: none !important;
-    }
+/* alles außer dem 3D Frame ausblenden */
+body.orbit-fullscreen main > *:not(.orbit-fullscreen-host){
+  display: none !important;
+}
 
-    /* wir hängen den Frame in einen "Host" (siehe JS),
-    damit er alleine im main steht */
-    .orbit-fullscreen-host{
-    display: block;
-    }
+/* wir hängen den Frame in einen "Host" (siehe JS),
+   damit er alleine im main steht */
+.orbit-fullscreen-host{
+  display: block;
+}
 
-    /* Frame nimmt dann wirklich den ganzen Screen */
-    body.orbit-fullscreen .orbit-frame{
-    position: fixed;
-    inset: 0;
-    width: 100vw;
-    height: 100vh;
-    border-radius: 0;
-    padding: 16px;
-    z-index: 9999;
-    background: #0b0f1a; /* oder transparent, wie du willst */
-    }
+/* Frame nimmt dann wirklich den ganzen Screen */
+body.orbit-fullscreen .orbit-frame{
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0;
+  padding: 16px;
+  z-index: 9999;
+  background: #0b0f1a; /* oder transparent, wie du willst */
+}
 
-    /* Canvas-Bereich füllt dann den restlichen Platz unter der Topbar */
-    body.orbit-fullscreen #orbit-control-container{
-    aspect-ratio: auto;
-    height: calc(100vh - 16px - 16px - 12px - 40px); 
-    /* grob: viewport - padding - topbar */
-    }
+/* Canvas-Bereich füllt dann den restlichen Platz unter der Topbar */
+body.orbit-fullscreen #orbit-control-container{
+  aspect-ratio: auto;
+  height: calc(100vh - 16px - 16px - 12px - 40px); 
+  /* grob: viewport - padding - topbar */
+}
 
 
     /*----------------------------------*/
@@ -1040,16 +1042,12 @@
         overflow: visible;
     }
 
-    .padding-bottom-caption{
-        padding-bottom: 0.5rem;
-    }
-
     .padding-bottom{
-        padding-bottom: 1rem;
+        padding-bottom: 20px;
     }
 
     .no-padding-bottom{
-        padding-bottom: 0rem;
+        padding-bottom: 0px;
     }
 
     .padding-left{

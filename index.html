@@ -32,26 +32,29 @@
         
         <section class="header-section">
             <div class="header-container">
-                <div class="header" id="left-header">
-                    <p >unser</p>
+                
+                <div class="header" id="left-header">    
                     <h1>20</h1>
-                    <div class="sticker-header" id="lukas-balaklava">
-                        <img src="images/lukas-balaklava.webp" alt="">
+                     <div class="sticker-header" id="lukas-balaklava">
+                        <img src="images/lukas-balaklava-cut.webp" alt="">
                     </div>
                 </div>
+                <p >unser</p>
+                
                 <div class="header" id="right-header">
-                    
                     <div class="sticker-header" id="elena-balaklava">
-                        <img src="images/elena-balaklava.webp" alt="">
-                    </div>
+                        <img src="images/elena-balaklava-cut.webp" alt="">
+                    </div>  
                     <h1>25</h1>
                 </div>
             </div>
-            
-
+            <div class="scroll-indicator">
+                <div class="scroll-indicator-line"><span></span></div>
+            </div> 
         </section>
+        
         <section class="scroll-section autoShow">
-            <p class="typo-text padding-bottom"> gestartet sind wir im</p>
+            <p class="typo-text padding-bottom-caption"> gestartet sind wir im</p>
             <h1 class="typo-title padding-bottom"> SCHNEE</h1>
             <div class="scroll-container">
                 <div class="card aspect-ratio-3-4">
@@ -72,8 +75,8 @@
         </section>
 
         <section class="stage-section autoShow">
-            <p class="typo-text padding-bottom"> und dann kam auch schon</p>
-            <h1 class="typo-title-mid padding-bottom">WIEN</h1>
+            <p class="typo-text padding-bottom-caption"> und dann kam auch schon</p>
+            <h1 class="typo-title-mid padding-bottom-caption">WIEN</h1>
             <p class="typo-text-end">unser erster urlaub</p>
             <div class="stage-container">
                 <div id="pickle">
@@ -213,10 +216,10 @@
         </section>
 
         <section class="scroll-section autoShow" id="second-scroll-section">
-            <p class="typo-text padding-bottom">deshalb brauchtest du oft einen</p>
+            <p class="typo-text padding-bottom-caption">deshalb brauchtest du oft einen</p>
 
             <div class="scroll-container" id="second-scroll-container">
-                <div class="container">
+                <div class="container-verdauungsschlaf">
                     <h1 class="typo-title typo-title-start padding-bottom" id="text-end"> VERDAUUNGSSCHLAF</h1>
                     <div class="scroll-container ">
                         <div class="card aspect-ratio-3-4">
@@ -240,7 +243,7 @@
         </section>
 
         <section class="stage-section autoShow" id="kastenlauf">
-            <p class="typo-text padding-bottom">so genug geschlafen, auf zum</p>
+            <p class="typo-text padding-bottom-caption">so genug geschlafen, auf zum</p>
             <h1 class="typo-title padding-bottom">KASTENLAUF</h1>
             <p class="typo-handwriting typo-text-end text-mid-end"> diesmal herrschte krieg</p>
             <div class="stage-container stage-container-battle" >
@@ -272,7 +275,7 @@
 
 
         <section class="scroll-section autoShow" id="third-scroll-section">
-            <p class="typo-text padding-bottom">doch dann begann das ewige</p>
+            <p class="typo-text padding-bottom-caption">doch dann begann das ewige</p>
             <h1 class="typo-title padding-bottom"> FACETIMEN</h1>
             <div class="scroll-container " id="third-scroll-container">
                 <div class="card aspect-ratio-3-4">
@@ -343,7 +346,7 @@
         </section>
 
         <section class="scroll-section autoShow" id="fourth-scroll-section">
-            <p class="typo-text padding-bottom"> doch dann waren wir endlich wieder</p>
+            <p class="typo-text padding-bottom-caption"> doch dann waren wir endlich wieder</p>
             <h1 class="typo-title padding-bottom"> VEREINT</h1>
 
              <div class="scroll-container" id="fourth-scroll-container">
@@ -382,8 +385,8 @@
         </div>
 
         <section class="stage-section autoShow">
-            <p class="typo-text padding-bottom"> und konnten zusammen</p>
-            <h1 class="typo-title-mid padding-bottom typo-title-smaller"> OKTOBERFEST</h1>
+            <p class="typo-text padding-bottom-caption"> und konnten zusammen</p>
+            <h1 class="typo-title-mid padding-bottom-caption typo-title-smaller"> OKTOBERFEST</h1>
             <p class="typo-text-end padding-bottom text-mid-end"> feiern</p>
             <div class="stage-container no-overlap">
                 <div class="battle">
@@ -414,12 +417,8 @@
         </section>
 
         <section class="stage-section autoShow">
-            <p class="typo-text padding-bottom"> und so blieb uns nur die </p>
-            <h1 class="typo-title typo-title-smaller"> ERINNERUNG</h1>
-           
-        </section>
-
-        <section class="stage-section autoShow">
+            <p class="typo-text padding-bottom-caption"> und so blieb uns nur die </p>
+            <h1 class="typo-title typo-title-smaller padding-bottom-caption"> ERINNERUNG</h1>
             <p class="typo-text-end padding-bottom">... und Kuchen</p>
             <section class="grid-section-container">
                 <p class="typo-handwriting left-text ">deiner</p>
@@ -434,10 +433,17 @@
             </section>
         </section>
 
-        <section class="stage-section autoShow">
-            <div class="stage-container" id="orbit-control-container">
+        <section class="stage-section ">
+        <p class="typo-text"> und damit du mich immer in guter erinnerung behältst</p>
+            <div class="stage-container no-overlap" id="stage-orbit-container">
+            <div class="orbit-frame" id="orbitFrame">
+                <button class="orbit-toggle typo-handwriting" id="orbitToggle" type="button">hast du mich hier in voller Pracht</button>
+            <div class="orbit-preview" id="orbit-control-container"></div>
+            </div>
+
             </div>
         </section>
+        </div>
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -445,7 +451,7 @@
     <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
     <script src="animations/laoder.js"></script>
     <script src="animations/scroll-center.js"></script>
-    <script src="animations/scroll-animation-pano.js"></script>
+    <!--<script src="animations/scroll-animation-pano.js"></script> -->
     <script src="animations/autoShow.js"></script>
     <!-- <script src="animations/scroll-animation.js"></script> -->
     <!-- <script src="animations/scroll-animation2.js"></script> -->

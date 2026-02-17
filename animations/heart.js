@@ -5,4 +5,8 @@ gif.addEventListener("click", () => {
   gif.src = gif.dataset.gif + "?t=" + Date.now();
   heartText.style.display = "none";
     //heartText.textContent = "bald wieder ein:";
+
+  if (window.__UNLOCK_AUTOSHOW__) {
+    window.__UNLOCK_AUTOSHOW__("#erinnerung-section");
+  }
 });
