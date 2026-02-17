@@ -18,8 +18,8 @@ if (!container) {
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
-camera.position.set(0, 4, 4);
-camera.lookAt(0, 30, 0);
+camera.position.set(0, 4, 2);
+
 
 const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
 renderer.shadowMap.enabled = true;
@@ -76,6 +76,39 @@ loader.load(
     object.scale.set(2, 2, 2);
     scene.add(object);
 
+    // BoundingBox + Center + Size berechnen
+    const box = new THREE.Box3().setFromObject(object);
+    const center = box.getCenter(new THREE.Vector3());
+    const size = box.getSize(new THREE.Vector3());
+
+    // Blickpunkt = Center + Offset nach oben
+    const target = center.clone();
+    target.y += size.y * 0.25; // 25% der Höhe nach oben (tweak: 0.15–0.4)
+
+    // OrbitControls: Zielpunkt = echter Model-Center
+    controls.target.copy(target);
+
+    // Kamera sinnvoll positionieren (fit-to-object)
+    const maxDim = Math.max(size.x, size.y, size.z);
+    const fov = THREE.MathUtils.degToRad(camera.fov);
+    let dist = (maxDim / 2) / Math.tan(fov / 2);
+
+    // bisschen “Luft” geben
+    dist *= 1.2;
+
+    // Richtung: schräg von vorne-oben
+    const dir = new THREE.Vector3(1, 0.6, 1).normalize();
+    camera.position.copy(target).addScaledVector(dir, dist);
+
+    camera.near = dist / 100;
+    camera.far  = dist * 100;
+    camera.updateProjectionMatrix();
+
+    //  wie weit/nah zoomen
+    controls.minDistance = dist * 0.2;
+    controls.maxDistance = dist * 1.0;
+    controls.update();
+
     object.traverse((child) => {
       if (child.isMesh) {
         child.castShadow = true;
@@ -94,8 +127,8 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.enablePan = false;
 controls.maxPolarAngle = Math.PI / 2;
-controls.maxDistance = 6;
-controls.minDistance = 2;
+//controls.maxDistance = 6;
+//controls.minDistance = 2;
 
 // Mobile Touch: 1 Finger rotate, 2 Finger pinch zoom
 controls.touches = {
@@ -121,7 +154,7 @@ host.className = "orbit-fullscreen-host";
 function setOrbitFullscreen(fullscreen) {
   document.body.classList.toggle("orbit-fullscreen", fullscreen);
 
-  // fallback zeilen (nicht unbedingt notwendig) Wenn kein orbitFrame existiert, skippen wir nur die CSS-Klasse
+  // fallback zeilen (nicht unbedingt notwendig) Wenn kein orbitFrame existiert, skipp nur die CSS-Klasse
   if (!orbitFrame) {
     if (orbitToggle) orbitToggle.textContent = fullscreen ? "Minimieren" : "Maximieren";
     resizeToContainer();
@@ -155,25 +188,19 @@ function setOrbitFullscreen(fullscreen) {
   // Wichtig: nach Layout-Wechsel einmal neu anpassen
   resizeToContainer();
 
-  // Falls du GSAP/ScrollTrigger nutzt, optional refresh:
+  // GSAP/ScrollTrigger refresh:
   if (window.ScrollTrigger) {
     requestAnimationFrame(() => window.ScrollTrigger.refresh());
   }
 }
 
-// Doppelklick auf Button "Maximieren"
+// klick auf Button "Maximieren"
 if (orbitToggle) {
   orbitToggle.addEventListener("pointerdown", () => {
     const fullscreen = document.body.classList.contains("orbit-fullscreen");
     setOrbitFullscreen(!fullscreen); //umtoggeln
   });
 }
-
-// Optional: Doppelklick direkt auf das Canvas toggelt auch
-//renderer.domElement.addEventListener("pointerdown", () => {
-  //const fullscreen = document.body.classList.contains("orbit-fullscreen");
-  //setOrbitFullscreen(!fullscreen);
-//});
 
 function animate() {
   requestAnimationFrame(animate);

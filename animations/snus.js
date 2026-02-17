@@ -14,8 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
       scrollTrigger: {
         trigger: "#fourth-scroll-section",
         start: "top 70%",
-        // optional zum Testen:
-        markers: true,
+        markers: false,
       }
     }
   );

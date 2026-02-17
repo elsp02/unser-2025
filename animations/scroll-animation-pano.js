@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", ()=>{
             const lenis = (window.lenis ||= new Lenis({ smooth: true }));
             //const lenis = new Lenis();
@@ -10,12 +11,14 @@ document.addEventListener("DOMContentLoaded", ()=>{
             const scrollContainer = document.querySelector("#pano-track");
             const section = document.querySelector('#pano-container');
             const progressAmount = document.querySelector('.progress-amount');
-            
+            const card = document.querySelector("#pano-bild");     // <- DEIN card wrapper
+            const p = document.querySelector("#slider-text");
+            const img = card?.querySelector("img");
 
             function initHorizontalScroll() {
                 
                 function getScrollAmount() {
-                    const scrollWidth = scrollContainer.scrollWidth;
+                    const scrollWidth = card.getBoundingClientRect().width;
                     const windowWidth = window.innerWidth;
                     
                     return -(scrollWidth - windowWidth);
@@ -37,62 +40,57 @@ document.addEventListener("DOMContentLoaded", ()=>{
                     }
                 });
             }
-            function fitWarteText() {
-            const card = document.querySelector("#pano-bild");
-            const p = document.querySelector("#slider-text");
-            const img = card?.querySelector("img");
-            if (!card || !p) return;
+        function fitWarteText() {
+        if (!card || !p) return;
 
-            // Zielbreite: lieber die Bildbreite nehmen, sonst Cardbreite
-            // zuerst p auf Bildbreite setzen (einmalig / jedes mal ok)
-            if (img) p.style.width = img.getBoundingClientRect().width + "px";
-            const targetWidth = p.clientWidth;
-            // Mess-Element (unsichtbar) mit exakt denselben Font-Styles wie dein p
-            let measurer = document.querySelector("#warte-measurer");
-            if (!measurer) {
-                measurer = document.createElement("span");
-                measurer.id = "warte-measurer";
-                measurer.style.position = "absolute";
-                measurer.style.visibility = "hidden";
-                measurer.style.whiteSpace = "pre";
-                measurer.style.left = "-9999px";
-                measurer.style.top = "0";
-                document.body.appendChild(measurer);
-            }
+        // zuerst p auf Bildbreite setzen
+        if (img) p.style.width = img.getBoundingClientRect().width + "px";
+        const targetWidth = scrollContainer.getBoundingClientRect().width;
 
-            // Styles vom <p> übernehmen (Font/Size/Letterspacing etc.)
-            const cs = getComputedStyle(p);
-            measurer.style.fontFamily = cs.fontFamily;
-            measurer.style.fontSize = cs.fontSize;
-            measurer.style.fontWeight = cs.fontWeight;
-            measurer.style.letterSpacing = cs.letterSpacing;
-            measurer.style.textTransform = cs.textTransform;
+        // Mess-Element (unsichtbar) mit exakt denselben Font-Styles wie p
+        let measurer = document.querySelector("#warte-measurer");
+        if (!measurer) {
+            measurer = document.createElement("span");
+            measurer.id = "warte-measurer";
+            measurer.style.position = "absolute";
+            measurer.style.visibility = "hidden";
+            measurer.style.whiteSpace = "pre";
+            measurer.style.left = "-9999px";
+            measurer.style.top = "0";
+            document.body.appendChild(measurer);
+        }
 
-            const prefix = "warte";
-            const suffix = " tada";
+        // Styles vom <p> übernehmen (Font/Size/Letterspacing etc.)
+        const cs = getComputedStyle(p);
+        measurer.style.fontFamily = cs.fontFamily;
+        measurer.style.fontSize = cs.fontSize;
+        measurer.style.fontWeight = cs.fontWeight;
+        measurer.style.letterSpacing = cs.letterSpacing;
+        measurer.style.textTransform = cs.textTransform;
 
-            // Basisbreite messen
-            measurer.textContent = prefix + suffix;
-            const baseWidth = measurer.getBoundingClientRect().width;
-            
+        const prefix = "warte";
 
-            // Breite eines "e" messen
-            measurer.textContent = "e";
-            const eWidth = measurer.getBoundingClientRect().width || 1;
+        // Basisbreite messen
+        measurer.textContent = prefix;
+        const baseWidth = measurer.getBoundingClientRect().width;
 
-            // Wie viel Platz bleibt übrig?
-            const remaining = Math.max(0, targetWidth - baseWidth);
+        // Breite eines "e" messen
+        measurer.textContent = "e";
+        const eWidth = measurer.getBoundingClientRect().width || 1;
 
-            // Anzahl e berechnen (kleiner Sicherheitsabzug, damit es nicht wrappt)
-            const safety = 5; // Pixel
-            const countE = Math.max(0, Math.floor((remaining - safety) / eWidth));
+        // Wie viel Platz bleibt übrig?
+        const remaining = Math.max(0, targetWidth - baseWidth);
 
-            p.textContent = prefix + "e".repeat(countE) + suffix;
-            }
+        // Anzahl e berechnen (kleiner Sicherheitsabzug, damit es nicht wrappt)
+        const safety = 5; // Pixel
+        const countE = Math.max(0, Math.floor((remaining - safety) / eWidth));
+
+        p.textContent = prefix + "e".repeat(countE);
+        }
 
             // Fonts & Bild laden beeinflussen die Messung -> nach load + nach resize
-            window.addEventListener("load", () => {
-            fitWarteText();
+        window.addEventListener("load", () => {
+        fitWarteText();
             });
 
             // wenn Fonts erst später ready sind
@@ -104,15 +102,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
             window.addEventListener("resize", () => {
             fitWarteText();
             });
-
-            // optional: wenn dein Bild lazy lädt / später Größe bekommt
-            const img = document.querySelector("#pano-bild img");
-            if (img && !img.complete) {
-            img.addEventListener("load", fitWarteText);
-            }
-
-            initHorizontalScroll();
-        });
+            
+    initHorizontalScroll();
+    });
 
 window.addEventListener("load", () => {
   if (window.ScrollTrigger) {

@@ -1,6 +1,3 @@
-// ==============================
-// GSAP GIF LOADER (min. 5s)
-// ==============================
 const MIN_LOADER_TIME = 5000; // ms
 
 const loader = document.getElementById("loader");
