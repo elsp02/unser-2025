@@ -309,10 +309,6 @@
     opacity: 0;
     }
 
-
-    
-
-
     /*------header-section---------*/
     .header-section{
         height: 100vh;
@@ -373,6 +369,9 @@
     position: absolute;
     z-index: 40;
     width: 120px;
+    transform-origin: center center;
+    cursor: pointer;
+    user-select: none;
     }
 
     #elena-balaklava{
@@ -396,11 +395,13 @@
     #elena-balaklava img{
         width: 100%;
         animation: wobble-elena 3.5s linear infinite;
+        pointer-events: none;
     }
 
     #lukas-balaklava img{
         width: 100%;
         animation: wobble-lukas 3.5s linear infinite;
+        pointer-events: none;
     }
 
     @keyframes wobble-lukas {
@@ -745,6 +746,10 @@
         z-index: 100;
     }
 
+    #luuk img{
+        animation: wobble-elena 3.5s linear infinite;
+    }
+
     .spruch{
         /*background-color: #5C2B2B;*/
         align-self: end;
@@ -831,10 +836,9 @@
         
     }
 
-    
-
     #david img{
         height: calc((var(--img-h))*0.8);
+        animation: wobble-elena 3.5s linear infinite;
     }
 
 

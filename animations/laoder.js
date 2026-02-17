@@ -53,6 +53,10 @@ function hideLoader() {
       if (window.__AUTO_SHOW_REFRESH__) {
         window.__AUTO_SHOW_REFRESH__();
       }
+
+      if (window.startStickerSpins) {
+        window.startStickerSpins();
+      }
     }
   });
 

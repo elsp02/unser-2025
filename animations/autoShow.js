@@ -28,7 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
       scrollTrigger: {
         trigger: el,
         start: "top 85%",
-        once: true,
+        once: true, 
+        //toggleActions: "play none none reset",
         markers: true,
       },
     });

@@ -2,8 +2,8 @@ window.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
 
   // Startzustand (sofort, vor Scroll)
-  gsap.set(".team-left img",  { x: "-120vw", rotation: -6, scale: 0.98 });
-  gsap.set(".team-right img", { x: "120vw",  rotation:  6, scale: 0.98 });
+  gsap.set(".team-left img",  { xPercent: -140, rotation: -6, scale: 0.98 });
+  gsap.set(".team-right img", { xPercent: 140,  rotation:  6, scale: 0.98 });
   gsap.set(".battle .vs", { opacity: 0, scale: 0.7 });
 
 
@@ -12,20 +12,20 @@ window.addEventListener("DOMContentLoaded", () => {
     scrollTrigger: {
       trigger: "#kastenlauf",
       start: "top 40%",   // wenn stage oben am Viewport ist
-      toggleActions: "play none none none",
+      once: true, 
       markers: false,       // nur zum Debuggen
     }
   });
   
   // Logos rein
   tl.to(".team-left img", {
-      x: 0,
+      xPercent: 0,
       rotation: 0,
       scale: 1
     }, 0)
 
     .to(".team-right img", {
-      x: 0,
+      xPercent: 0,
       rotation: 0,
       scale: 1
     }, 0.08)
