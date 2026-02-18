@@ -71,7 +71,7 @@ scene.add(floor);
 // Model laden
 const loader = new GLTFLoader();
 loader.load(
-  "scan/scan-elena.glb",
+  "./scan/scan-elena.glb",
   (gltf) => {
     const object = gltf.scene;
     object.scale.set(2, 2, 2);
