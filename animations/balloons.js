@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // deine Line-Drawings (WebP/PNG mit transparentem Hintergrund ist ideal)
   const balloonImgs = [
-    "images/balloon1.webp",
+    "images/sex1.webp",
   ];
 
   function spawnBalloons(amount = 10) {

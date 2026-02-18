@@ -26,7 +26,7 @@
     --green: #868656;
     --light-green: #DBDBB6;
     --red: #5C2B2B;
-    --blue: #2B495C;
+    --blue: #4E5F83;
 
     /* Spacing */
     --page-padding: clamp(1.25rem, 5vw, 2rem);
@@ -279,7 +279,7 @@
     #loader {
         position: fixed;
         inset: 0;
-        background-color: #4E5F83;
+        background-color: var(--blue);
         z-index: 9999;
 
         display: flex;
@@ -308,6 +308,7 @@
     #main-container {
     opacity: 0;
     height: fit-content;
+    overflow-x: hidden;
     }
 
     /*------header-section---------*/
@@ -953,7 +954,7 @@
         position: absolute;
         bottom: 1rem;
         transform: translateX(calc((var(--img-h)*3/4)*0.5));
-        color: var(--font-color)
+        color: var(--blue)
     }
 
     /*---------orbit-control----------*/
@@ -967,7 +968,8 @@
     /* Text-Button */
     .orbit-toggle-button{
     position: absolute;
-    inset: 0;
+    width: 100%;
+    height: 100%;
     border: 1px solid var(--green);
     border-radius: var(--img-border);
     cursor: pointer;
@@ -1025,14 +1027,17 @@
 
     body.orbit-fullscreen .orbit-toggle-button{
     position: absolute;
+    width: auto;
+    height: auto;
     inset: auto;           /* wichtig: löst das Vollflächen-Overlay */
     padding-inline: 1rem;
     padding-block: 0.5rem;
     top: 0.5rem;
     right: 0.5rem;
     z-index: 300;
-
     }
+
+    
     /*------------bottom-pinguin---------*/
     #penguin{
         align-self: center;
@@ -1057,7 +1062,7 @@
     #downloadBtn{
         padding-top: 0.5rem;
         stroke: 0px;
-        color: var(--font-color);
+        color: var(--blue);
         align-self: center;
         text-decoration: none;
         opacity: 0;

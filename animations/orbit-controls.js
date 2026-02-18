@@ -56,7 +56,7 @@ directionalLight.shadow.camera.top = d;
 directionalLight.shadow.camera.bottom = -d;
 
 scene.add(ambientLight, directionalLight);
-scene.add(new THREE.AxesHelper(5));
+//scene.add(new THREE.AxesHelper(5));
 
 // Boden
 const floor = new THREE.Mesh(
