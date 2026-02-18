@@ -8,6 +8,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 const orbitFrame = document.getElementById("orbitFrame");
 const orbitToggle = document.getElementById("orbitToggle");
 const container = document.getElementById("orbit-control-container");
+const downloadBtn = document.getElementById("downloadBtn");
 
 // Fallback: falls du den Frame nicht hast, kann er auch direkt der Container sein
 if (!container) {
@@ -199,6 +200,10 @@ if (orbitToggle) {
   orbitToggle.addEventListener("pointerdown", () => {
     const fullscreen = document.body.classList.contains("orbit-fullscreen");
     setOrbitFullscreen(!fullscreen); //umtoggeln
+    if (downloadBtn) {
+      downloadBtn.style.opacity = "1";
+      downloadBtn.style.pointerEvents = "auto";
+    }
   });
 }
 

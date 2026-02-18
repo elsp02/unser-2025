@@ -1052,6 +1052,54 @@
         height: calc((var(--img-h))*0.3);
         display: block;
     }
+
+    /*------------balloons--------------*/
+    #downloadBtn{
+        padding-top: 0.5rem;
+        stroke: 0px;
+        color: var(--font-color);
+        align-self: center;
+        text-decoration: none;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s ease, transform 0.4s eas
+    }
+    #downloadBtn:hover,
+    #downloadBtn:active{
+        text-decoration: underline;
+        color: var(--red);
+    }
+
+    #downloadtn{
+        background-color: #4E5F83;
+        padding-inline: 1rem;
+        padding-block: 0.5rem;
+        width: fit-content;
+        min-width: 100px;
+        align-self: center;
+        text-decoration: none;
+    }
+
+    #balloon-layer{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 0;           /* wir spawnen am unteren Rand */
+    pointer-events: none;
+    z-index: 9999;       /* über allem */
+    }
+
+    /* ein “Ballon”-Bild */
+    .balloon{
+    position: absolute;
+    bottom: -80px;       /* startet leicht unterhalb */
+    width: clamp(40px, 8vw, 110px);
+    height: auto;
+    opacity: 0;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.18));
+    will-change: transform, opacity;
+    }
     
     /*----------------------------------*/
     .overflow{
